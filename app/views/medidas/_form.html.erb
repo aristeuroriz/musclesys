@@ -1,0 +1,42 @@
+<div class="container centralizado">
+	<%= bootstrap_form_for(@medida, inline_errors: true) do |f| %>
+
+
+	<%= f.date_select :data_medida, label: "Data" %>
+
+	<%= f.number_field :peso, label: "Peso", append: "Kg", step: 0.1 %>
+
+	<%= f.number_field :torax, label: "Tórax", append: "cm", step: 0.1%>
+
+	<%= f.number_field :ombro, label: "Ombro", append: "cm", step: 0.1 %>
+
+	<%= f.number_field :braco_d, label: "Braço direito", append: "cm", step: 0.1 %>
+
+	<%= f.number_field :braco_e, label: "Braço esquerdo", append: "cm", step: 0.1 %>
+
+	<%= f.number_field :ante_braco_d, label: "Ante-braço direito", append: "cm", step: 0.1%>
+
+	<%= f.number_field :ante_braco_e, label: "Ante-braço esquerdo", append: "cm", step: 0.1%>
+
+	<%= f.number_field :cintura, label: "Cintura", append: "cm", step: 0.1%>
+
+	<%= f.number_field :quadril, label: "Quadril", append: "cm", step: 0.1 %>
+
+	<%= f.number_field :gluteo, label: "Glúteos", append: "cm", step: 0.1,  help: 'Insira zero para desconsiderar' %>
+
+	<%= f.number_field :coxa_d, label: "Coxa direita", append: "cm", step: 0.1 %>
+
+	<%= f.number_field :coxa_e, label: "Coxa esquerda", append: "cm", step: 0.1%>
+
+	<%= f.number_field :perna_d, label: "Perna direita", append: "cm", step: 0.1 %>
+
+	<%= f.number_field :perna_e, label: "Perna esquerda", append: "cm", step: 0.1 %>
+
+	<%= f.text_area :obs, label: "Observações"%>
+
+	<%= f.submit "Salvar",  class: "btn btn-success btn-large " %>
+
+
+	<% end %>
+
+</div>

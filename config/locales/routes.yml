@@ -1,0 +1,16 @@
+en:
+  routes:
+pt-BR:
+  routes:
+    welcome: bemvindo
+    new: novo
+    edit: editar
+    destroy: apagar
+    password: senha
+    sign_in: login
+    sign_out: sair
+    sign_up: cadastrar
+    users: usuarios
+    cancel: cancelar
+    article: artigo
+    articles: artigos

@@ -1,0 +1,52 @@
+<h2>Minhas medidas</h2>
+<div class="table-responsive" id="medidas">
+
+  <table class="table">
+    <th class="info">Data</th>
+    <th class="info">Peso</th>
+    <th class="info">Tórax</th>
+    <th class="info">Ombro</th>
+    <th class="info">Braço direito</th>
+    <th class="info">Braço esquerdo</th>
+    <th class="info">Antebraço direito</th>
+    <th class="info">Antebraço esquerdo</th>
+    <th class="info">Cintura</th>
+    <th class="info">Quadril</th>
+    <th class="info">Glúteos</th>
+    <th class="info">Coxa direita</th>
+    <th class="info">Coxa esquerda</th>
+    <th class="info">Perna direta</th>
+    <th class="info">Perna esquerda</th>
+    <th class="info">Observação</th>
+    <th class="info">Link</th>
+
+
+    <tbody>
+      <% @medidas.each do |medida| %>
+      <tr>
+        <td><%= medida.data_medida %></td>
+        <td><%= medida.peso %></td>
+        <td><%= medida.torax %></td>
+        <td><%= medida.ombro %></td>
+        <td><%= medida.braco_d %></td>
+        <td><%= medida.braco_e %></td>
+        <td><%= medida.ante_braco_d %></td>
+        <td><%= medida.ante_braco_e %></td>
+        <td><%= medida.cintura %></td>
+        <td><%= medida.quadril %></td>
+        <td><%= medida.gluteo %></td>
+        <td><%= medida.coxa_d %></td>
+        <td><%= medida.coxa_e %></td>
+        <td><%= medida.perna_d %></td>
+        <td><%= medida.perna_e %></td>
+        <td><%= medida.obs %></td>
+        <td><%= link_to 'Editar', edit_medida_path(medida) %></td>
+
+    </tr>
+    <% end %>
+</tbody>
+</table>
+
+</div>
+<%= link_to 'New Medida', new_medida_path %>
+

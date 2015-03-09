@@ -1,0 +1,10 @@
+<% unless flash.blank? %>
+<% flash.each do |type, message| %>
+
+<div class="alert" id="alert">
+	<button class="close" data-dismiss="alert" >×</button>
+	<%= message %>
+</div>
+  <%= javascript_include_tag "alert.js" %>
+<% end %>
+<% end %>

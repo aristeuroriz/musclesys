@@ -1,0 +1,32 @@
+<div class="container centralizado">
+
+	<%= bootstrap_form_for(@treino, inline_errors: true) do |f| %>
+	<% if @treino.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@treino.errors.count, "error") %> prohibited this treino from being saved:</h2>
+
+		<ul>
+			<% @treino.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+
+	<%= f.select :grupo_muscular, [[""],["Peitoral"], ["Costas"], ["Braços"], ["Ombros"], ["Abdómen"], ["Pernas"]],
+	label: 'Grupo muscular',  autofocus: true %>
+
+	<%= f.text_field :desc_exercicio, label: 'Exercício',  autofocus: true %>
+
+	<%= f.select :carga, [[""],["Muito leve"], ["Leve"], ["Moderado"], ["Pesado"], ["Muito pesado"]],label:
+	'Carga',  autofocus: true %>
+
+	<%= f.number_field :serie, label: "Séries"%>
+
+	<%= f.number_field :repeticoes, label: "Repetições"%>
+
+	<%= f.submit "Salvar",  class: "btn btn-success btn-large " %>
+
+
+	<% end %>
+</div>

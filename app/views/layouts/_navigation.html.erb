@@ -1,0 +1,30 @@
+<% if user_signed_in? %>
+
+<ul class="nav navbar-nav">
+	<li><a><%= link_to('Painel', painel_index_path, :method=> 'get' )%></a></li>
+	<li><a><%= link_to('Treino', treinos_path )%></a></li> 
+	<li><a><%= link_to('Medidas', medidas_path )%></a></li>  
+	<li><a><%= link_to('Blog', root_path )%></a></li> 
+</ul>
+
+<ul class="nav navbar-nav pull-right">
+	<li><a><%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>  </a> </li>     
+	<li><a><%= link_to('Edit account', edit_user_registration_path, :method=> 'get' ) %></a></li>
+</ul>
+
+<% else %>
+
+<ul class="nav navbar-nav">
+	<li><a><%= link_to('Home', root_path )%> </a></li>
+	<li><a><%= link_to('Blog', root_path )%></a></li> 
+</ul>
+
+<ul class="nav navbar-nav pull-right">
+	<li><a><%= link_to('Criar conta grátis', new_user_registration_path, :method=> 'get' )%> </a></li>
+
+	<li><a><%= link_to('Entrar', new_user_session_path) %>  </a></li>
+</ul>
+
+<% end %>
+
+

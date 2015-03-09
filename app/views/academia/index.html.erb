@@ -1,0 +1,29 @@
+<h1>Listing academia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome acad</th>
+      <th>Localidade</th>
+      <th>Instrutor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @academia.each do |academium| %>
+      <tr>
+        <td><%= academium.nome_acad %></td>
+        <td><%= academium.localidade %></td>
+        <td><%= academium.instrutor %></td>
+        <td><%= link_to 'Show', academium %></td>
+        <td><%= link_to 'Edit', edit_academium_path(academium) %></td>
+        <td><%= link_to 'Destroy', academium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Academium', new_academium_path %>

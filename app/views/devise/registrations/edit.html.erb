@@ -1,0 +1,67 @@
+<div class="container centralizado">
+  <center>
+    <h2>Alterar cadastro</h2>
+  </center>
+
+  <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), label_errors: true, inline_errors: true, html: { method: :put }) do |f| %>
+
+  <%= f.alert_message "Por favor, preencha corretamente os campos marcados.", error_summary: false %>
+
+  <%= f.text_field :full_name, label: 'Nome completo',  autofocus: true %>
+
+  <%= f.email_field :email,label: 'E-mail',  autofocus: true%>
+  
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+  <div>Atualmente à espera de confirmação: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <%= f.password_field :password,label: 'Senha', help: "Em branco para manter a atual", autocomplete: "off"%>
+  
+  <%= f.password_field :password_confirmation,label: 'Confirme sua senha', autocomplete: "off" %>
+
+  <%= f.date_select :birth_date, label: 'Data de nascimento', :start_year => 1930, :end_year => Date.current.year - 6,  autofocus: true%>
+
+  <%= f.select :sex, [[nil],["Masculino"], ["Feminino"]],label: 'Sexo',  autofocus: true %>
+  
+  <%= f.number_field :stature, label: 'Estatura', append: "cm", autofocus: true %>
+  
+  <%= f.select :objective, [[nil],["Hipertrofia"], ["Condicionamento"]] ,label: 'Objetivo',  autofocus: true %>
+  
+  <%= f.text_field :location, label: 'Cidade',  autofocus: true,  help: "Ex.: Brasília - após clique no botão abaixo." %>
+
+
+
+  <script type="text/javascript" src="jquery.min.js"></script>
+
+  <script type="text/javascript" src="jquery-ui.custom.min.js"></script> 
+
+  <div>
+    <center>
+      <input type="button" class='btn btn-danger' id="mostrar" name="mostrar" value="Localizar" />
+
+      <br><br>
+
+      <div id="mapa" style="height: 200px; width: 260px"></div>
+      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD7OTNmxQP4EtDHv1s_2dH91uW6KUgwBtY&sensor=FALSE"></script>
+
+      <!-- Arquivo de inicialização do mapa -->
+      <%= javascript_include_tag "mapa.js" %>
+
+    </center>
+  </div>
+
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
+  <br>
+
+  <%= f.password_field :current_password, autocomplete: "off", help: "Senha atual obrigatória", label: "Senha atual" %>
+  <center>
+    <%= f.submit "Atualizar" , class: "btn btn-success btn-large "%>
+  </center>
+
+  <% end %>
+  <br><br>
+
+  <center><%= link_to "Back", :back %></center>
+</div>
+

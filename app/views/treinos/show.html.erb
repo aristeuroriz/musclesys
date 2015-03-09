@@ -1,0 +1,25 @@
+<h2>Treinos</h2>
+<div class="table-responsive ">
+	<table class="table">
+		
+		<th class='info'> Grupo muscular</th>
+		<th class='info'>Exercício </th>
+		<th class='info'>Carga</th>
+		<th class='info'>Séries </th>
+		<th class='info'>Repetições</th>
+		<th class='info'></th>
+		<tbody>
+			<tr>
+				<td><%= @treino.grupo_muscular %></td>
+				<td><%= @treino.desc_exercicio %></td>
+				<td><%= @treino.carga %></td>
+				<td><%= @treino.serie %></td>
+				<td><%= @treino.repeticoes %></td>
+				<td><%= link_to 'Editar', edit_treino_path(@treino) %></td>
+
+			</tr>
+		</tbody>
+		
+	</table>
+</div>
+<%= link_to 'Back', treinos_path %>
