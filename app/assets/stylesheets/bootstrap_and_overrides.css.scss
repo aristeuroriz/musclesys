@@ -2,6 +2,8 @@
 @import "bootstrap-sprockets";
 
 
+
+
 $bgDefault      : #110022;
 $bgHighlight    : #00ffff;
 $colDefault     : #ecf0f1;
@@ -78,22 +80,22 @@ $colHighlight   : #ecdbff;
 	}
 }
 
+.logo{
+	padding-top: 2%;
+	padding-bottom: 3%;
+	width: 50%;
+	height: 25%;
+	float: left;
+}
 
-	body { padding-top: 7%; }
+
+body { padding-top: 7%; }
 
 @media screen and (min-width:320px) {
 	.centralizado{ /* Centraliza os forms */
 		width: 100%;
 		height: 50%;
 		text-align: left; 
-	}
-.logo {
-
-		width: 25%;
-		height: 5%;
-		margin-left: -42%;
-		margin-top: 0;
-		
 	}
 
 }
@@ -105,13 +107,6 @@ $colHighlight   : #ecdbff;
 		text-align: left; 
 	}
 	
-	.logo {
-
-		width: 25%;
-		height: 5%;
-		margin-left: -42%;
-		margin-top: 0;	
-	}
 }
 
 @media screen and (min-width:600px) { 
@@ -120,16 +115,6 @@ $colHighlight   : #ecdbff;
 		height: 50%;
 		text-align: left;
 	}
-
-	.logo {
-
-		width: 25%;
-		height: 5%;
-		margin-left: -42%;
-		margin-top: 1%;
-		
-	}
-
 }
 
 @media screen and (min-width:768px) {
@@ -139,14 +124,6 @@ $colHighlight   : #ecdbff;
 		height: 50%;
 		text-align: left;
 		//background-color: #e047a5;
-	}
-
-	.logo {
-
-		width: 50%;
-		height: 10%;
-		margin-left: 0 auto;
-		margin-top: 3%;
 	}
 
 }
@@ -159,14 +136,6 @@ $colHighlight   : #ecdbff;
 		//background-color: #c0afdb;
 	}
 
-	.logo {
-
-		width: 50%;
-		height: 10%;
-		margin-left: 0 auto;
-		margin-top: 3%;
-	}
-
 }
 
 @media screen and (min-width:1200px) { 
@@ -177,13 +146,6 @@ $colHighlight   : #ecdbff;
 		//background-color: #32383E;
 	}
 
-	.logo {
-
-		width: 50%;
-		height: 10%;
-		margin-left: 0 auto;
-		margin-top: 3%;
-	} 
 }
 
 li:hover{
@@ -223,29 +185,30 @@ th, table {
 html, body, #wrap {
 	height: 100%;
 }
- 
+
 body > #wrap {
 	height: auto; min-height: 100%;
 }
- 
+
 #main {
-	overflow:auto;
+	overflow: hidden;
 	padding-bottom: 150px;
 	}  /* deve ter a mesma altura do rodapé */
- 
+
 #footer {
-	position: relative;
-	margin-top: -150px; /* valor negativo da altura do rodapé */
-	height: 250px;
-	clear: both;
-	background-color: #110022;
+		position: relative;
+		margin-top: -150px; /* valor negativo da altura do rodapé */
+		height: 250px;
+		clear: both;
+		background-color: #110022;
+		overflow-x: hidden;
 } 
- 
-/*Opera Fix*/
+
+	/*Opera Fix*/
 body:before {
-	content:"";
-	height:100%;
-	float:left;
-	width:0;
-	margin-top:-32767px;
+		content:"";
+		height:100%;
+		float:left;
+		width:0;
+		margin-top:-32767px;
 }

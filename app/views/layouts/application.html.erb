@@ -6,7 +6,7 @@
 	<title><%= content_for?(:title) ? yield(:title) : "MuscleSys" %></title>
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Musclesys</title>
+	<title>Muscleys</title>
 	<%= favicon_link_tag 'favicon.ico' %>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -26,7 +26,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<%= link_to((image_tag "logo_400x91.png",class: "logo"), root_path) %> 
+				<%= link_to((image_tag "logo_400x91.png", class: "logo col-lg-12"), root_path) %>
 				</div>
 
 				<div class="collapse navbar-collapse" id="bar">
