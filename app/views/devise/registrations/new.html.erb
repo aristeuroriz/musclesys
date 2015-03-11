@@ -21,7 +21,7 @@
 	
 	<%= f.select :objective, [[nil],["Hipertrofia"], ["Condicionamento"]],label: 'Objetivo',  autofocus: true %>
 	
-	<%= f.text_field :location, label: 'Cidade',  autofocus: true,  help: "Ex.: Brasília - após clique no botão abaixo." %>
+	<%= f.text_field :location, label: 'Cidade',  autofocus: true,  help: "Ex.: Brasília - após clique em 'Localizar'." %>
 
 	<script type="text/javascript" src="jquery.min.js"></script>
 
@@ -46,6 +46,11 @@
 	<%= f.hidden_field :longitude %>
 	<br>
 	<center>
+
+			<input type="checkbox"> Li e aceito os termos e condições de uso descritos aqui.</input>
+			<br>
+			<br>
+	
 		<%= f.submit "Criar conta agora" , class: "btn btn-success btn-large "%>
 
 		<% end %>

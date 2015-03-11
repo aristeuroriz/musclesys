@@ -11,7 +11,6 @@ class CreateMedidas < ActiveRecord::Migration
       t.float :ante_braco_e
       t.float :cintura
       t.float :quadril
-      t.float :gluteo
       t.float :coxa_d
       t.float :coxa_e
       t.float :perna_d

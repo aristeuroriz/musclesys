@@ -1,13 +1,15 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
 
-
-
-
 $bgDefault      : #110022;
 $bgHighlight    : #00ffff;
 $colDefault     : #ecf0f1;
 $colHighlight   : #ecdbff;
+
+.strong{
+	font-weight: bold;
+
+}
 
 .navbar-default {
 	background-color: $bgDefault;

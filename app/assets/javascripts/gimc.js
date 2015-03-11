@@ -1,6 +1,6 @@
 $(function () {
 
-  $('#gkpi').highcharts({
+  $('#gimc').highcharts({
 
     chart: {
       type: 'gauge',
@@ -11,8 +11,9 @@ $(function () {
     },
 
     title: {
-      text: 'Indicador de meta'
+      text: 'IMC - Índice de Massa Corporal'
     },
+
 
     pane: {
       startAngle: -150,
@@ -49,8 +50,8 @@ $(function () {
 
         // the value axis
         yAxis: {
-          min: 0,
-          max: 200,
+          min: 15,
+          max: 35,
 
           minorTickInterval: 'auto',
           minorTickWidth: 1,
@@ -68,28 +69,36 @@ $(function () {
             rotation: 'auto'
           },
           title: {
-            text: 'km/h'
+            text: 'IMC'
           },
           plotBands: [{
-            from: 0,
-            to: 120,
+            from: 15,
+            to: 17,
                 color: '#DF5353' // red
               }, {
-                from: 120,
-                to: 160,
+                from: 17.01,
+                to: 18.49,
                 color: '#DDDF0D' // yellow
               }, {
-                from: 160,
-                to: 200,
+                from: 18.50,
+                to: 24.99,
                 color: '#55BF3B' // green
+              }, {
+                from: 25,
+                to: 29.99,
+                color: '#DDDF0D' // yellow
+              }, {
+                from: 30,
+                to: 34.99,
+                color: '#DF5353' // red
               }]
             },
 
             series: [{
-              name: 'Speed',
-              data: [80],
+              name: 'IMC',
+              data: [gon.imc],
               tooltip: {
-                valueSuffix: ' km/h'
+                valueSuffix: ' kg/m²'
               }
             }]
 
@@ -100,7 +109,7 @@ $(function () {
             setInterval(function () {
               var point = chart.series[0].points[0],
               newVal,
-              inc = Math.round((Math.random() - 0.5) * 20);
+           //   inc = Math.round((Math.random() - 0.5) * 20);
 
               newVal = point.y + inc;
               if (newVal < 0 || newVal > 200) {
@@ -112,4 +121,5 @@ $(function () {
             }, 3000);
           }
         });
+
 });

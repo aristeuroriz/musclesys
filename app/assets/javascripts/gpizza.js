@@ -1,12 +1,15 @@
 $(function () {
     $('#gpizza').highcharts({
         chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: 1,//null,
-            plotShadow: false
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
         },
         title: {
-            text: 'Proporções corporais'
+            text: 'Proporções do corpo'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -15,25 +18,23 @@ $(function () {
             pie: {
                 allowPointSelect: true,
                 cursor: 'pointer',
+                depth: 35,
                 dataLabels: {
                     enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
+                    format: '{point.name}'
                 }
             }
-        },       
-        series: [{
-        	type: 'pie',
-        	name: 'Proporções',
-        	data: [
-        	['Tórax', gon.torax1 ],
-        	['Braços', gon.bracos1],
-        	['Abdómen',   gon.cintura1],
-        	['Quadríceps', gon.pernas1],
-        	['Pernas', gon.pernas1]
-        	]
+        },
+    series: [{
+            type: 'pie',
+            name: 'Proporção',
+            data: [
+            ['Tórax', gon.torax],
+            ['Braços', gon.bracos],
+            ['Cintura',   gon.cintura],
+            ['Quadril', gon.quadril],
+            ['Pernas', gon.pernas]
+            ]
         }]
     });
 });

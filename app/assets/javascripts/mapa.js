@@ -52,6 +52,8 @@ $("#mostrar").click(function() {
 	if($(this).val() != "")
 		carregarNoMapa($("#user_location").val());
 
+	this.trigger('click');
+
 })
 
 $("#user_location").blur(function() {

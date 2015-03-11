@@ -41,7 +41,7 @@ $(function () {
             data: [gon.bracos1, gon.bracos2, gon.bracos3, gon.bracos4]
 
         }, {
-            name: 'Abdómen',
+            name: 'Cintura',
             data: [gon.cintura1, gon.cintura2, gon.cintura3, gon.cintura4]
 
         }, {

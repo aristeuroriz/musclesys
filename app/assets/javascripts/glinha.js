@@ -13,7 +13,7 @@ $(function () {
         },
         yAxis: {
         	title: {
-        		text: 'Centrímetros (cm)'
+        		text: 'Valores'
         	},
         	plotLines: [{
         		value: 0,
@@ -22,7 +22,7 @@ $(function () {
         	}]
         },
         tooltip: {
-        	valueSuffix: 'cm'
+        	valueSuffix: ' cm'
         },
         legend: {
         	layout: 'vertical',
@@ -42,6 +42,12 @@ $(function () {
         }, {
         	name: 'Pernas',
         	data: [gon.pernas1, gon.pernas2, gon.pernas3, gon.pernas4]
+        }, {
+            name: 'Peso',
+            data: [gon.peso1, gon.peso2, gon.peso3, gon.peso4],
+                tooltip: {
+                valueSuffix: ' kg'
+        }
         }]
     });
 });

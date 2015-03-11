@@ -8,8 +8,8 @@
 </ul>
 
 <ul class="nav navbar-nav pull-right">
-	<li><a><%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>  </a> </li>     
-	<li><a><%= link_to('Edit account', edit_user_registration_path, :method=> 'get' ) %></a></li>
+	<li><a><%= link_to(current_user.email, edit_user_registration_path, :method=> 'get', :class =>'strong') %></a></li>
+	<li><a><%= link_to('Sair', destroy_user_session_path, :method=>'delete') %>  </a> </li>     
 </ul>
 
 <% else %>
