@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 	<meta charset="utf-8">
 	<%= viewport_meta_tag(:maximum_scale => "1.0") %>
 	<title><%= content_for?(:title) ? yield(:title) : "MuscleSys" %></title>
 	<meta name="description" content="App fitness para acompanhamento nos treinos diários">
+	<meta name="keywords" content="app,fitness,musculacao,emagrecer,avaliacao,imc,treinos,workout,gym,resultados">
 	<meta name="author" content="Aristeu Roriz Neto">
+	<meta name="robots" content="index,follow">
+	<meta http-equiv="content-language" content="pt-br">
 	<title>Muscleys</title>
 	<%= favicon_link_tag 'favicon.ico' %>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>

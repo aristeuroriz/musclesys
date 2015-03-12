@@ -33,6 +33,7 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass-extras'
 gem "font-awesome-rails"
 gem 'bootstrap-social-rails'
+gem "dynamic_sitemaps"
 
 gem 'therubyracer', :platforms => :ruby
 
