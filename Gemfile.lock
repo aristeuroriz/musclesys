@@ -48,6 +48,8 @@ GEM
       sass (>= 3.2.19)
     bootstrap-sass-extras (0.0.6)
       rails (>= 3.1.0)
+    bootstrap-social-rails (4.8.0)
+      railties (>= 3.1)
     bootstrap_form (2.2.0)
     builder (3.2.2)
     byebug (3.5.1)
@@ -76,6 +78,8 @@ GEM
     execjs (2.4.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    font-awesome-rails (4.3.0.0)
+      railties (>= 3.2, < 5.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     gon (5.2.3)
@@ -218,11 +222,13 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.3)
   bootstrap-sass-extras
+  bootstrap-social-rails
   bootstrap_form
   byebug
   cocoon
   coffee-rails (~> 4.1.0)
   devise
+  font-awesome-rails
   gon
   highcharts-rails (~> 4.0.4.1)
   jbuilder (~> 2.0)

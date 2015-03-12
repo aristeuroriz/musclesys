@@ -31,6 +31,8 @@ gem 'gon'
 gem "kaminari"
 gem 'omniauth-facebook'
 gem 'bootstrap-sass-extras'
+gem "font-awesome-rails"
+gem 'bootstrap-social-rails'
 
 gem 'therubyracer', :platforms => :ruby
 

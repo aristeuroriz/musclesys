@@ -29,5 +29,4 @@ class ApplicationController < ActionController::Base
   end
    config.password_length = 6..14 # Coloquei de 4 à 20 para ilustração.
    
-
- end
+end
