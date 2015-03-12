@@ -28,7 +28,7 @@ module Musclesys
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     
-    config.assets.precompile += ['gpizza.js', 'mapa.js', 'gimc.js', 'glinha.js', 'gcol.js', 'alert.js', 'analytics.js']
+    config.assets.precompile += ['gpizza.js', 'mapa.js', 'gimc.js', 'glinha.js', 'gcol.js', 'alert.js']
 
     
 end
