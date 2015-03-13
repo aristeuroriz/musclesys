@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :location
     devise_parameter_sanitizer.for(:sign_up) << :latitude
     devise_parameter_sanitizer.for(:sign_up) << :longitude
+    devise_parameter_sanitizer.for(:sign_up) << :aceite
 
 
     devise_parameter_sanitizer.for(:account_update) << :full_name

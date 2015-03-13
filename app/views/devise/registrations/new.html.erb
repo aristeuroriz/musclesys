@@ -3,7 +3,7 @@
 		<h2>Criar conta</h2>
 	</div> 
 
-	<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name),inline_errors: true) do |f| %>
+	<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), inline_errors: true, label_errors: true) do |f| %>
 
 	<%= f.text_field :full_name, label: 'Nome completo',  autofocus: true%>
 	
@@ -19,9 +19,9 @@
 	
 	<%= f.number_field :stature,label: 'Estatura', append: "cm", autofocus: true, control_col: "col-sm-2" %>
 	
-	<%= f.select :objective, [[nil],["Hipertrofia"], ["Condicionamento"]],label: 'Objetivo',  autofocus: true %>
+	<%= f.select :objective, [[nil],["Hipertrofia"], ["Condicionamento"], ["Emagrecimento"]],label: 'Objetivo',  autofocus: true %>
 	
-	<%= f.text_field :location, label: 'Cidade',  autofocus: true,  help: "Ex.: Brasília - após clique em 'Localizar'." %>
+	<%= f.text_field :location, label: 'Cidade',  autofocus: true,  help: "Ex.: Brasília" %>
 
 
 	<script type="text/javascript" src="jquery.min.js"></script>
@@ -29,10 +29,6 @@
 	<script type="text/javascript" src="jquery-ui.custom.min.js"></script> 
 
 	<div class='local'>
-		
-		<input type="button" class='btn btn-danger btn-centro' id="mostrar" name="mostrar" value="Localizar" />
-
-		<br><br><br>
 
 		<div id="mapa" style="height: 200px; width: 100%"></div>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -40,17 +36,15 @@
 		<!-- Arquivo de inicialização do mapa -->
 		<%= javascript_include_tag "mapa.js" %>
 
+
 	</div>
 
 	<%= f.hidden_field :latitude %>
 	<%= f.hidden_field :longitude %>
 	<br>
+	<center><%= f.check_box :aceite, label: "Li e aceito os termos de uso do MuscleSys" %></center>
 
 
-	<input type="checkbox"> Li e aceito os termos e condições de uso.</input>
-	<br>
-	<br>
-	
 	<%= f.submit "Criar conta agora" , class: "btn btn-success btn-large "%>
 
 	<% end %>

@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20141201183304) do
     t.float    "ante_braco_e", limit: 24
     t.float    "cintura",      limit: 24
     t.float    "quadril",      limit: 24
-    t.float    "gluteo",       limit: 24
     t.float    "coxa_d",       limit: 24
     t.float    "coxa_e",       limit: 24
     t.float    "perna_d",      limit: 24
@@ -101,6 +100,7 @@ ActiveRecord::Schema.define(version: 20141201183304) do
     t.integer  "academias_id",           limit: 4
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
+    t.boolean  "aceite",                 limit: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

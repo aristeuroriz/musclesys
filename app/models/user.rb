@@ -5,8 +5,7 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable, :timeoutable, :omniauthable, :omniauth_providers => [:facebook], :timeout_in => 15.minutes
+  devise :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable, :validatable, :timeoutable, :omniauthable, :omniauth_providers => [:facebook], :timeout_in => 15.minutes
 
   def self.from_omniauth(auth)
   	where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -20,6 +19,8 @@ end
 belongs_to :academia
 belongs_to :plano
 
-# validates_presence_of :full_name, :birth_date, :sex , :stature, :objective, :location
+validates :aceite, acceptance: { accept: true }
+
+# validates_presence_of :full_name, :birth_date, :sex , :stature, :objective, :location, :aceite
 
 end

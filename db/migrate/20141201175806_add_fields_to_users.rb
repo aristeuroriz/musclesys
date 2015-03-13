@@ -15,6 +15,7 @@ class AddFieldsToUsers < ActiveRecord::Migration
     add_column :users, :academias_id, :integer
     add_column :users, :provider, :string
     add_column :users, :uid, :string
+    add_column :users, :aceite, :boolean
 
 end
 end
