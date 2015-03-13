@@ -1,7 +1,7 @@
 <div class="container centralizado">
-  <center>
+<div class='txt-centro'>
     <h2>Alterar cadastro</h2>
-  </center>
+</div>
 
   <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), label_errors: true, inline_errors: true, html: { method: :put }) do |f| %>
 
@@ -30,24 +30,23 @@
   <%= f.text_field :location, label: 'Cidade',  autofocus: true,  help: "Ex.: Brasília - após clique em 'Localizar'." %>
 
 
-
   <script type="text/javascript" src="jquery.min.js"></script>
 
   <script type="text/javascript" src="jquery-ui.custom.min.js"></script> 
 
-  <div>
-    <center>
-      <input type="button" class='btn btn-danger' id="mostrar" name="mostrar" value="Localizar" />
+  <div class='local'>
+  
+      <input type="button" class='btn btn-danger btn-centro' id="mostrar" name="mostrar" value="Localizar" />
 
-      <br><br>
+      <br><br><br>
 
       <div id="mapa" style="height: 200px; width: 100%"></div>
-      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBp5_cwt1IcJkGAebxorhAhPNN82PsceIY&sensor=FALSE"></script>
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
       <!-- Arquivo de inicialização do mapa -->
       <%= javascript_include_tag "mapa.js" %>
 
-    </center>
+
   </div>
 
   <%= f.hidden_field :latitude %>
@@ -55,9 +54,9 @@
   <br>
 
   <%= f.password_field :current_password, autocomplete: "off", help: "Senha atual obrigatória", label: "Senha atual" %>
-  <center>
-    <%= f.submit "Atualizar" , class: "btn btn-success btn-large "%>
-  </center>
+
+    <%= f.submit "Atualizar" , class: "btn btn-success "%>
+
 
   <% end %>
   <br><br>

@@ -13,6 +13,22 @@ $colHighlight   : #ecdbff;
 
 }
 
+.btn{
+
+	position: relative;
+	float: right;
+}
+
+.btn-centro{
+	position: relative;
+	margin-right: 45%;
+}
+
+.txt-centro{
+
+	text-align: center;
+}
+
 .navbar-default {
 	background-color: $bgDefault;
 	border-color: $bgHighlight;
@@ -85,8 +101,8 @@ $colHighlight   : #ecdbff;
 }
 
 .arneti{
- 	color: #0082FF !important;
- 	text-decoration:none;
+	color: #0082FF !important;
+	text-decoration:none;
 }
 .arneti:hover{
 	color: white;
@@ -100,11 +116,18 @@ $colHighlight   : #ecdbff;
 	float: left;
 }
 
+.band{
+
+	width: 80px;
+	height: 25px;
+
+}
+
 
 body { padding-top: 8%; }
 
 .home{
-  padding-top: 1%;
+	padding-top: 1%;
 }
 
 @media screen and (min-width:320px) {
@@ -227,20 +250,20 @@ body > #wrap {
 	padding-bottom: 150px;
 	}  /* deve ter a mesma altura do rodapé */
 
-#footer {
+	#footer {
 		position: relative;
 		margin-top: -150px; /* valor negativo da altura do rodapé */
 		height: 250px;
 		clear: both;
 		background-color: #110022;
 		overflow-x: hidden;
-} 
+	} 
 
 	/*Opera Fix*/
-body:before {
+	body:before {
 		content:"";
 		height:100%;
 		float:left;
 		width:0;
 		margin-top:-32767px;
-}
+	}

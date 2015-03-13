@@ -1,4 +1,5 @@
 class TreinosController < ApplicationController
+
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_filter :authenticate_user!
   respond_to :html, :xml, :json
@@ -21,6 +22,7 @@ class TreinosController < ApplicationController
 
   def edit
     @treino = current_user.treinos.find(params[:id])
+  
   end
 
   def create
@@ -28,7 +30,7 @@ class TreinosController < ApplicationController
     @treino.user_id = current_user.id
 
     if @treino.save
-      redirect_to @treino, notice: t('flash.notice.medida_created')
+      redirect_to @treino, notice: 'Treino adicionado com sucesso.'
     else
       render action: "index"
     end
@@ -38,7 +40,7 @@ class TreinosController < ApplicationController
     @treino = Treino.find(params[:id])
 
     if @treino.update(treino_params)
-      redirect_to @treino, notice: t('flash.notice.medida_updated')
+      redirect_to @treino, notice: 'Treino atualizado com sucesso.'
     else
       render action: "edit"
     end

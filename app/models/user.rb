@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
 	has_many :medidas, dependent: :destroy
+  has_many :treinos, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
