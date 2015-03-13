@@ -11,12 +11,12 @@ class PainelController < ApplicationController
 		m4  = Medida.limit(4).where(:user_id=>current_user.id).order('data_medida ASC')
 		gon.m1 = Medida.where(:user_id=>current_user.id).first
 		altura = current_user.stature
-		gon.imc = (((m4.map(&:peso).last)/(altura**2))*10000).round(1)
+		
 
 		if gon.m1 == nil
-			redirect_to medidas_path, :alert => "Para ver sua evolução você precisa ter medidas cadastradas!"
+			redirect_to medidas_path, :alert => "Para ver suas estatísticas você precisa ter medidas cadastradas."
 		else
-
+			gon.imc = (((m4.map(&:peso).last)/(altura**2))*10000).round(1)
 			# Últimos dados
 
 			lastData = Medida.where(:user_id=>current_user.id).last
