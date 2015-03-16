@@ -4,14 +4,13 @@
 	<meta charset="utf-8">
 	<%= viewport_meta_tag(:maximum_scale => "1.0") %>
 	<title><%= content_for?(:title) ? yield(:title) : "MuscleSys" %></title>
-	<meta name="description" content="App fitness para acompanhamento nos treinos diários">
-	<meta name="keywords" content="app,fitness,musculacao,emagrecer,avaliacao,imc,treinos,workout,gym,resultados">
+	<meta name="description" content="App fitness para acompanhamento nos treinos diários. Musculação, condicionamento e emagrecimento com estatísticas de qualquer lugar em qualquer hora.">
+	<meta name="keywords" content="app,web,fitness,musculacao,emagrecer,avaliacao,imc,treinos,workout,resultados,hipertrofia">
 	<meta name="author" content="Aristeu Roriz Neto">
 	<meta name="robots" content="index,follow">
 	<meta http-equiv="content-language" content="pt-br">
 	<meta name="google-site-verification" content="uI_7in9sLC6XQhr2XppMvD-uXRpeRSkZ4f-GhvMqRmA" />
 	<meta name="msvalidate.01" content="F453CB8C9A435F59E3DFFF805C9B7F74" />
-	<title>Muscleys</title>
 	<%= favicon_link_tag 'favicon.ico' %>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -30,7 +29,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-				<%= link_to((image_tag "logo_400x91.png", class: "logo col-lg-12"), root_path) %>
+					<%= link_to((image_tag "logo_400x91.png", class: "logo col-lg-12"), root_path) %>
 				</div>
 
 				<div class="collapse navbar-collapse" id="bar">

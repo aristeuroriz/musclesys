@@ -11,6 +11,7 @@ class MedidasController < ApplicationController
 
 
  def show
+  
   @medida = Medida.where(:user_id=>current_user.id).find(params[:id])
 end
 
@@ -32,7 +33,7 @@ def create
 
 
   if @medida.save
-    redirect_to @medida, notice: t('flash.notice.medida_created')
+    redirect_to @medida, notice: 'Medida registrada com sucesso.'
   else
     render action: "index"
   end
@@ -44,7 +45,7 @@ def update
  @medida = Medida.find(params[:id])
 
  if @medida.update(medida_params)
-  redirect_to @medida, notice: t('flash.notice.medida_updated')
+  redirect_to @medida, notice: 'Medida atualizada com sucesso.'
 else
   render action: "edit"
 end
@@ -66,7 +67,7 @@ end
 
 def medida_params
   params.require(:medida).permit(:data_medida, :peso, :torax, :ombro, :braco_d, :braco_e,
-    :ante_braco_d, :ante_braco_e, :cintura, :quadril, :gluteo, :coxa_d, :coxa_e, :perna_d, :perna_e, :obs)
+    :ante_braco_d, :ante_braco_e, :cintura, :quadril, :coxa_d, :coxa_e, :perna_d, :perna_e, :obs)
 end
 end
 

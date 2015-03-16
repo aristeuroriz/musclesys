@@ -1,12 +1,12 @@
 
 <p>
   <strong>Data medida:</strong>
-  <%= @medida.data_medida %>
+  <%= @medida.data_medida.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
   <strong>Peso:</strong>
-  <%= @medida.peso %>
+  <%= @medida.peso.to_s+" Kg"%>
 </p>
 
 <p>
@@ -47,11 +47,6 @@
 <p>
   <strong>Quadril:</strong>
   <%= @medida.quadril %>
-</p>
-
-<p>
-  <strong>Gluteo:</strong>
-  <%= @medida.gluteo %>
 </p>
 
 <p>
