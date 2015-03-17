@@ -8,6 +8,8 @@ $bgHighlight    : #00ffff;
 $colDefault     : #ecf0f1;
 $colHighlight   : #ecdbff;
 
+label.required:after {content:" *"; } 
+
 .strong{
 	font-weight: bold;
 
