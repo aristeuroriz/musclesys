@@ -5,4 +5,4 @@
  Disallow: /planos
  Disallow: /academias
  Disallow: /academia
-
+ Disallow: /users/password/

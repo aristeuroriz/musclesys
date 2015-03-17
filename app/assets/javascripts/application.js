@@ -17,5 +17,4 @@
 //= require highcharts/highcharts-more                                                         
 //= require cocoon
 //= require bootstrap
-//= require bootstrap-sprockets
 //= require_tree .
