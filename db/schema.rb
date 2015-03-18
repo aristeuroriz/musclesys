@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318001851) do
+ActiveRecord::Schema.define(version: 20150318012917) do
 
   create_table "academia", force: :cascade do |t|
     t.string   "nome_acad",  limit: 255
@@ -100,7 +100,6 @@ ActiveRecord::Schema.define(version: 20150318001851) do
     t.integer  "academias_id",           limit: 4
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
-    t.boolean  "aceite",                 limit: 1
     t.string   "confirmation_token",     limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

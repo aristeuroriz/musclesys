@@ -1,6 +1,5 @@
-class AddAceiteToUsers < ActiveRecord::Migration
-  
-def up
+class RemoveAceiteToUsers < ActiveRecord::Migration
+ def up
 	remove_column :users, :aceite
 end
 

@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :location
     devise_parameter_sanitizer.for(:sign_up) << :latitude
     devise_parameter_sanitizer.for(:sign_up) << :longitude
-    devise_parameter_sanitizer.for(:sign_up) << :aceite
+    devise_parameter_sanitizer.for(:sign_up) << :termos
 
 
     devise_parameter_sanitizer.for(:account_update) << :full_name
@@ -27,7 +27,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :location
     devise_parameter_sanitizer.for(:account_update) << :latitude
     devise_parameter_sanitizer.for(:account_update) << :longitude
-  end
-   config.password_length = 6..14 # Coloquei de 4 à 20 para ilustração.
-   
+  end   
 end
