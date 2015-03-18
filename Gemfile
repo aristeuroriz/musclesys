@@ -35,6 +35,8 @@ gem "font-awesome-rails"
 gem 'bootstrap-social-rails'
 gem "dynamic_sitemaps"
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 gem 'therubyracer', :platforms => :ruby
 
 
