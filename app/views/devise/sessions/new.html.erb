@@ -1,7 +1,7 @@
-<center>
-  <h1>Entrar</h1>
-</center>
-<div class="container centralizado">
+ <h1><%= title 'Entrar' %></h1>
+ <% meta description: 'Login do usuário' %>
+ <div class="container centralizado">
+  
   <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name), layout: :default) do |f| %>
 
   <%= f.email_field :email,label: 'E-mail',  autofocus: true%>
@@ -12,9 +12,9 @@
 
   <%= f.check_box :remember_me, label: "Lembrar" %>
   <% end -%>
-  <center>
-    <%= f.submit "Entrar", class: "btn btn-success btn-large"%>
-  </center>
+
+    <%= f.submit "Entrar", class: "btn btn-success btn-large center-block"%>
+
   <br><br>
 
   <% end %>

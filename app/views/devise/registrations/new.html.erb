@@ -1,7 +1,9 @@
 <div class="container centralizado">
 	<div class="txt-centro">
-		<h2>Criar conta</h2>
-	</div> 
+		<h1><%= title 'Criar conta grátis' %></h1>
+		<% meta description: 'Criar nova conta grátis' %>
+	</div>
+
 
 	<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), inline_errors: true, label_errors: true) do |f| %>
 
@@ -45,24 +47,24 @@
 	<%= f.hidden_field :longitude %>
 	<br>
 
-<center>
-
-	<textarea class="form-control" disabled name="nowrap"  rows="8" cols="40" wrap="off">
-		<%= render "layouts/termos" %>
-	</textarea>
-  <%= f.check_box :termos, label: "Li e aceito os termos e condições de uso descritos acima."  %>
-    
-
-</center>
 
 
+		<textarea class="form-control" disabled name="nowrap"  rows="8" cols="40" wrap="off">
+			<%= render "layouts/termos" %>
+		</textarea>
+		<%= f.check_box :termos, label: "Li e aceito os termos e condições de uso descritos acima.", class: "txt-centro"  %>
 
-<%= f.submit "Criar conta agora" , class: "btn btn-success btn-large center-block" %>
 
-<% end %>
-<br><br>
+	
 
-<%= render "devise/shared/links" %>
+
+
+	<%= f.submit "Criar conta agora" , class: "btn btn-success btn-large center-block" %>
+
+	<% end %>
+	<br><br>
+
+	<%= render "devise/shared/links" %>
 
 
 </div>

@@ -6,34 +6,33 @@ $(document).on("ready page:change", function() {
 <% if user_signed_in? %>
 
 <ul class="nav navbar-nav">
-	<li><a><%= link_to('Painel', painel_index_path, :method=> 'get', :class=> 'fonte')%></a></li>
-	<li><a><%= link_to('Treino', treinos_path , :class=> 'fonte')%></a></li> 
-	<li><a><%= link_to('Medidas', medidas_path, :class=> 'fonte' )%></a></li>  
+	<li><%= link_to('Dashboard', painel_index_path, :method=> 'get', :class=> 'fonte-menu')%></li>
+	<li><%= link_to('Treino', treinos_path , :class=> 'fonte-menu')%></li> 
+	<li><%= link_to('Medidas', medidas_path, :class=> 'fonte-menu' )%></li>  
 </ul>
 
 <ul class="nav navbar-nav pull-right">
-	<li><a><%= link_to(current_user.email, edit_user_registration_path, :style=>'font-size:70%;', :method=> 'get', :class=> "tag-tooltip fonte",
+	<li><%= link_to(current_user.email, edit_user_registration_path, :style=>'font-size:100%;', :method=> 'get', :class=> "tag-tooltip fonte-menu",
 		:data => {:toggle=>"tooltip"},
 		'data-original-title' => "Editar conta",
-		'data-placement' => 'bottom') %></a></li>
-	<li><a><%= link_to((fa_icon "sign-out"), destroy_user_session_path, :method=>'delete', :class=> "tag-tooltip",
+		'data-placement' => 'bottom') %></li>
+	<li><%= link_to((fa_icon "sign-out"), destroy_user_session_path, :method=>'delete', :class=> "tag-tooltip fa-2x",
 		:data => {:toggle=>"tooltip"},
 		'data-original-title' => "Sair",
-		'data-placement' => 'bottom') %>  </a> </li>     
+		'data-placement' => 'bottom') %>   </li>     
 	</ul>
-
 
 	<% else %>
 
 	<ul class="nav navbar-nav">
-		<li><a><%= link_to('Home', root_path , :class=> 'fonte')%> </a></li>
-		<li><a><%= link_to('Blog', root_path , :class=> 'fonte')%></a></li> 
+		<li><%= link_to('Home', root_path , :class=> 'fonte-menu')%> </li>
+		<li><%= link_to('Blog', root_path , :class=> 'fonte-menu')%></li> 
 	</ul>
 
 	<ul class="nav navbar-nav pull-right">
-		<li><a><%= link_to('Criar conta grátis', new_user_registration_path, :method=> 'get' , :class=> 'fonte')%> </a></li>
+		<li><%= link_to('Criar conta grátis', new_user_registration_path, :method=> 'get' , :class=> 'fonte-menu')%> </li>
 
-		<li><a><%= link_to( "Entrar" ,  new_user_session_path, :class=> "fonte" )%>  </a></li>
+		<li><%= link_to( "Entrar" ,  new_user_session_path, :class=> "fonte-menu" )%>  </li>
 	</ul>
 
 	<% end %>

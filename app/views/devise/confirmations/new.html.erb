@@ -1,4 +1,7 @@
+<div class='container centralizado'>
+	<div class="txt-centro">
 <h2>Reenviar instruções de confirmação</h2>
+</div>
 
 <%= bootstrap_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
 <%= devise_error_messages! %>
@@ -6,8 +9,10 @@
 <%= f.email_field :email, label: 'E-mail', autofocus: true %>
 
 
-<%= f.submit "Reenviar instruções de confirmação", class: 'btn btn-primary btn-centro' %>
+<%= f.submit "Reenviar instruções de confirmação", class: 'btn btn-primary center-block' %>
 <br><br><br>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
