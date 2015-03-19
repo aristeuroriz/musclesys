@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318012917) do
+ActiveRecord::Schema.define(version: 20150318001851) do
 
   create_table "academia", force: :cascade do |t|
     t.string   "nome_acad",  limit: 255
@@ -88,8 +88,9 @@ ActiveRecord::Schema.define(version: 20150318012917) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "full_name",              limit: 255
-    t.string   "sex",                    limit: 255
+    t.string   "first_name",             limit: 255
+    t.string   "last_name",              limit: 255
+    t.string   "gender",                 limit: 255
     t.date     "birth_date"
     t.float    "stature",                limit: 24
     t.string   "objective",              limit: 255

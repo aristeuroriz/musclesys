@@ -8,9 +8,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-  	devise_parameter_sanitizer.for(:sign_up) << :full_name
+  	devise_parameter_sanitizer.for(:sign_up) << :first_name
+    devise_parameter_sanitizer.for(:sign_up) << :last_name
   	devise_parameter_sanitizer.for(:sign_up) << :birth_date
-    devise_parameter_sanitizer.for(:sign_up) << :sex
+    devise_parameter_sanitizer.for(:sign_up) << :gender
     devise_parameter_sanitizer.for(:sign_up) << :stature
     devise_parameter_sanitizer.for(:sign_up) << :objective
     devise_parameter_sanitizer.for(:sign_up) << :location
@@ -19,9 +20,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :termos
 
 
-    devise_parameter_sanitizer.for(:account_update) << :full_name
+    devise_parameter_sanitizer.for(:account_update) << :first_name
+    devise_parameter_sanitizer.for(:account_update) << :last_name
     devise_parameter_sanitizer.for(:account_update) << :birth_date
-    devise_parameter_sanitizer.for(:account_update) << :sex
+    devise_parameter_sanitizer.for(:account_update) << :gender
     devise_parameter_sanitizer.for(:account_update) << :stature
     devise_parameter_sanitizer.for(:account_update) << :objective
     devise_parameter_sanitizer.for(:account_update) << :location

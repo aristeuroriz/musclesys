@@ -21,6 +21,6 @@ belongs_to :plano
 
 validates_acceptance_of :termos
 
-# validates_presence_of :full_name, :birth_date, :sex , :stature, :objective, :location, :aceite
+validates_presence_of :first_name, :last_name, :birth_date, :gender , :stature, :objective, :location
 
 end

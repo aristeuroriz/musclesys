@@ -9,17 +9,19 @@
 
 	<%= f.alert_message "Por favor, verifique os erros a seguir:" %>
 
-	<%= f.text_field :full_name, label: 'Nome completo',  autofocus: true%>
-	
+	<%= f.text_field :first_name, label: 'Nome',  autofocus: true%>
+
+	<%= f.text_field :last_name, label: 'Sobrenome',  autofocus: true%>
+
 	<%= f.email_field :email,label: 'E-mail',  autofocus: true%>
 
 	<%= f.password_field :password,label: 'Senha', help: "No mínimo #{@minimum_password_length} caracteres", autocomplete:"off"%>
 	
-	<%= f.password_field :password_confirmation,label: 'Confirme sua senha', autocomplete: "off" %>
+	<%= f.password_field :password_confirmation,label: 'Confirme sua senha *', autocomplete: "off" %>
 	
 	<%= f.date_select :birth_date, label: 'Data de nascimento', :start_year => 1930, :end_year => Date.current.year - 6,  autofocus: true%>
 
-	<%= f.select :sex, [[nil],["Masculino"], ["Feminino"]],label: 'Sexo',  autofocus: true %>
+	<%= f.select :gender, [[nil],["Masculino"], ["Feminino"]],label: 'Sexo',  autofocus: true %>
 	
 	<%= f.number_field :stature,label: 'Estatura', append: "cm", autofocus: true, control_col: "col-sm-2" %>
 	
@@ -40,31 +42,22 @@
 		<!-- Arquivo de inicialização do mapa -->
 		<%= javascript_include_tag "mapa.js" %>
 
-
 	</div>
 
 	<%= f.hidden_field :latitude %>
 	<%= f.hidden_field :longitude %>
 	<br>
 
-
-
 		<textarea class="form-control" disabled name="nowrap"  rows="8" cols="40" wrap="off">
 			<%= render "layouts/termos" %>
 		</textarea>
-		<%= f.check_box :termos, label: "Li e aceito os termos e condições de uso descritos acima.", class: "txt-centro"  %>
-
-
-	
-
-
+		<div class="centralizado" style="margin: 0 auto; float: none;">
+		<%= f.check_box :termos, label: "Li e aceito os termos e condições de uso descritos acima. *"  %>
+	</div>
 
 	<%= f.submit "Criar conta agora" , class: "btn btn-success btn-large center-block" %>
 
 	<% end %>
 	<br><br>
-
 	<%= render "devise/shared/links" %>
-
-
 </div>

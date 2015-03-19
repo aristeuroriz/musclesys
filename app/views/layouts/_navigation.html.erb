@@ -12,10 +12,8 @@ $(document).on("ready page:change", function() {
 </ul>
 
 <ul class="nav navbar-nav pull-right">
-	<li><%= link_to(current_user.email, edit_user_registration_path, :style=>'font-size:100%;', :method=> 'get', :class=> "tag-tooltip fonte-menu",
-		:data => {:toggle=>"tooltip"},
-		'data-original-title' => "Editar conta",
-		'data-placement' => 'bottom') %></li>
+	<li><%=link_to(current_user.email, edit_user_registration_path, :style=>'font-size:100%;',:method=> 'get')%></li>
+	
 	<li><%= link_to((fa_icon "sign-out"), destroy_user_session_path, :method=>'delete', :class=> "tag-tooltip fa-2x",
 		:data => {:toggle=>"tooltip"},
 		'data-original-title' => "Sair",
