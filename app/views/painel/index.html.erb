@@ -16,7 +16,9 @@
       <div id="gimc"></div>
 
       <%= javascript_include_tag "gimc.js" %>
-      <%= render "painel/imc" %>
+
+      <button type="button" class="btn btn-default btn-xs centro" data-toggle="modal" data-target="#imc">Saiba mais aqui</button>
+    
     </div>
   </div>
 
@@ -41,4 +43,6 @@
 
   </div>
 </div>
+
+  <%= render "painel/imc" %>
 
