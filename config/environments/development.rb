@@ -3,7 +3,7 @@ Rails.application.configure do
 
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-    :address => 'smtp.sendgrid.net',
+    :address => 'smtp.mandrillapp.com',
     :port => '587',
     :authentication => :plain,
     :user_name => ENV['SMTP_USERNAME'],

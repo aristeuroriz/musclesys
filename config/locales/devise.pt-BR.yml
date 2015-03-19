@@ -27,7 +27,7 @@ pt-BR:
       signed_in: 'Login realizado com sucesso.'
       signed_out: 'Logout realizado com sucesso.'
     passwords:
-      send_instructions: 'Dentro de minutos, receberá um email com as instruções de reinicialização da senha.'
+      send_instructions: 'Dentro de minutos você receberá um email com as instruções de reinicialização da senha.'
       updated: 'Sua senha foi alterada com sucesso.'
     confirmations:
       send_instructions: 'Dentro de minutos, receberá um email com as instruções de confirmação da sua conta.'

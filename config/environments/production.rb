@@ -1,15 +1,15 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    :address => 'smtp.sendgrid.net',
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+    :address => 'smtp.mandrillapp.com',
     :port => '587',
     :authentication => :plain,
-   :user_name => ENV['SMTP_USERNAME'],
+    :user_name => ENV['SMTP_USERNAME'],
     :password => ENV['SMTP_PASSWORD'],
     :domain => 'heroku.com'
-  }
+}
   config.action_mailer.default_url_options = { :host => 'musclesys.com.br' }
 
   # Code is not reloaded between requests.
