@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
   match 'painel/index'  => 'painel#index' , via: [:get]
 
-  devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",
+  	registrations: 'registrations' }
 
    root 'home#index'
 

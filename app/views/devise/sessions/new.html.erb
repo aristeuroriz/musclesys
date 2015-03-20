@@ -1,7 +1,7 @@
  <h1><%= title 'Entrar' %></h1>
  <% meta description: 'Login do usuário' %>
  <div class="container centralizado">
-  
+
   <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name), layout: :default) do |f| %>
 
   <%= f.email_field :email,label: 'E-mail',  autofocus: true%>
@@ -13,11 +13,18 @@
   <%= f.check_box :remember_me, label: "Lembrar" %>
   <% end -%>
 
-    <%= f.submit "Entrar", class: "btn btn-success btn-large center-block"%>
+  <%= f.submit "Entrar", class: "btn btn-success btn-lg center-block", :style=>'width:265px;'%>
+<br>
+  <div class="txt-centro">ou</div>
 
-  <br><br>
-
+  <br>
   <% end %>
+<form method="get" action="/users/auth/facebook">
+<button class="btn btn-social btn-facebook btn-lg center-block">
+  <i class="fa fa-facebook" style="margin-top: 3%;"></i>
+  Entrar com Facebook
+</button>
+</form>
 
   <%= render "devise/shared/links" %>
 
