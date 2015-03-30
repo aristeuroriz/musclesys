@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   #  :lockable, :timeoutable and :omniauthable  
-  devise :confirmable, :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable,
+  devise  :confirmable, :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable,
   :validatable, :timeoutable, :omniauthable, :omniauth_providers => [:facebook], :timeout_in => 15.minutes
 
   def self.find_for_facebook_oauth(auth)
@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
 
       return user
     end
+
   end
 
 
@@ -59,9 +60,7 @@ class User < ActiveRecord::Base
 
    validates_acceptance_of :termos
 
-
    validates_presence_of :first_name, :last_name, :birth_date, :gender , :stature, :objective, :location,  :unless => 'objective.nil?'
-
 
  end
 

@@ -5,7 +5,7 @@
 	</div>
 
 
-	<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), inline_errors: true, label_errors: true) do |f| %>
+	<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), inline_errors: false, label_errors: true) do |f| %>
 
 	<%= f.alert_message "Por favor, verifique os erros a seguir:" %>
 
@@ -48,16 +48,28 @@
 	<%= f.hidden_field :longitude %>
 	<br>
 
-		<textarea class="form-control" disabled name="nowrap"  rows="8" cols="40" wrap="off">
-			<%= render "layouts/termos" %>
-		</textarea>
-		<div class="centralizado" style="margin: 0 auto; float: none;">
-		<%= f.check_box :termos, label: "Li e aceito os termos e condições de uso. *"  %>
-	</div>
+	<textarea class="form-control" disabled name="nowrap"  rows="8" cols="40" wrap="off">
+		<%= render "layouts/termos" %>
+	</textarea>
+	
+	<br>
+	<%= f.check_box :termos, label: "Li e aceito os termos e condições de uso. *"  %>
+	<br>
 
-	<%= f.submit "Criar conta agora" , class: "btn btn-success btn-large center-block" %>
+	<%= f.submit "Criar minha conta", class: "btn btn-success btn-lg center-block", :style=>'width:265px !important;'%>
+	<br>
+	<div class="txt-centro">ou</div>
 
+	<br>
 	<% end %>
-	<br><br>
-	<%= render "devise/shared/links" %>
+	<form method="get" action="/users/auth/facebook">
+		<button class="btn btn-social btn-facebook btn-lg center-block">
+			<i class="fa fa-facebook" style="margin-top: 3%;"></i>
+			Entrar com Facebook
+		</button>
+	</form>
+	<br>
+
+<br>
+<%= render "devise/shared/links" %>
 </div>

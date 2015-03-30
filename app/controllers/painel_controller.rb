@@ -12,6 +12,9 @@ class PainelController < ApplicationController
 		gon.m1 = Medida.where(:user_id=>current_user.id).first
 		altura = current_user.stature
 		
+		if current_user.stature.blank? or current_user.stature == 0
+			redirect_to edit_user_registration_path, :alert => "Para calcular-mos seu IMC precisamos da sua estatura."
+		end
 
 		if gon.m1 == nil
 			redirect_to medidas_path, :alert => "Para ver suas estatísticas você precisa ter medidas cadastradas."
