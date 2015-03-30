@@ -24,7 +24,7 @@
     <tbody>
       <% @medidas.each do |medida| %>
       <tr>
-        <td><%= medida.data_medida %></td>
+        <td><%= medida.data_medida.strftime("%d/%m/%Y") %></td>
         <td><%= medida.peso %></td>
         <td><%= medida.torax %></td>
         <td><%= medida.ombro %></td>

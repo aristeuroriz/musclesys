@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   has_many :treinos, dependent: :destroy
 
   # Include default devise modules. Others available are:
-  #  :lockable, :timeoutable and :omniauthable 
-  devise  :confirmable, :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable,
+  #  :lockable, :timeoutable and :omniauthable  
+  devise :confirmable, :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable,
   :validatable, :timeoutable, :omniauthable, :omniauth_providers => [:facebook], :timeout_in => 15.minutes
 
   def self.find_for_facebook_oauth(auth)
