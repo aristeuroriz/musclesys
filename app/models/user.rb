@@ -22,6 +22,12 @@ class User < ActiveRecord::Base
         var_gender = nil
       end
 
+      if auth.extra.raw_info.birthday == nil
+        var_birthday = nil
+      else
+        var_birthday = Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y')
+      end
+
       user = User.create(
           provider: auth.provider,    # Create a new user if a user with same email not present
           uid: auth.uid,
@@ -29,10 +35,10 @@ class User < ActiveRecord::Base
           password: Devise.friendly_token[0,20],
           first_name: auth.info.first_name,
           last_name: auth.info.last_name,
-          birth_date: Date.strptime(auth.extra.raw_info.birthday,'%m/%d/%Y'),
+          birth_date: var_birthday,
           gender: var_gender,
           location: auth.info.location,
-          image_url: auth.info.image+'?type=large'
+          image_url: auth.info.image
         )
 
       return user
