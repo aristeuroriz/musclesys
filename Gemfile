@@ -35,6 +35,7 @@ gem "font-awesome-rails"
 gem 'bootstrap-social-rails'
 gem "dynamic_sitemaps"
 gem 'metamagic'
+gem 'griddler'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 

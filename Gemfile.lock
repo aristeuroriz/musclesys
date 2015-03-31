@@ -88,10 +88,14 @@ GEM
       json
       multi_json
       request_store (>= 1.0.5)
+    griddler (1.1.0)
+      htmlentities
+      rails (>= 3.2.0)
     hashie (3.4.0)
     highcharts-rails (4.0.4.1)
       railties (>= 3.1)
     hike (1.2.3)
+    htmlentities (4.3.3)
     i18n (0.7.0)
     jbuilder (2.2.11)
       activesupport (>= 3.0.0, < 5)
@@ -234,6 +238,7 @@ DEPENDENCIES
   dynamic_sitemaps
   font-awesome-rails
   gon
+  griddler
   highcharts-rails (~> 4.0.4.1)
   jbuilder (~> 2.0)
   jquery-rails
