@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :location
     devise_parameter_sanitizer.for(:account_update) << :latitude
     devise_parameter_sanitizer.for(:account_update) << :longitude
+    devise_parameter_sanitizer.for(:account_update) << :termos
 
 
     devise_parameter_sanitizer.for(:account_update) << :current_password

@@ -5,7 +5,7 @@
 
   <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), label_errors: false, inline_errors: true, html: { method: :put }) do |f| %>
 
-  <%= f.alert_message "Por favor, preencha corretamente os campos marcados.", error_summary: false %>
+  <%= f.alert_message "Por favor, preencha corretamente os campos marcados.", error_summary: true %>
 
   <%= f.text_field :first_name, label: 'Nome',  autofocus: true%>
 
@@ -24,7 +24,7 @@
   <%= f.password_field :password_confirmation,label: 'Confirme sua senha *', autocomplete: "off" %>
 
    <%= f.password_field :current_password, autocomplete: "off", help: "A senha atual é obrigatória.", label: "Senha atual *" %>
-  
+   
   <% end %>
 
   <%= f.date_select :birth_date, label: 'Data de nascimento', :start_year => 1930, :end_year => Date.current.year - 6,  autofocus: true%>
@@ -55,6 +55,15 @@
 
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
+
+   <% if current_user.sign_in_count == 1 or current_user.location.blank?%> 
+
+  <br>
+  <%= f.check_box :termos, label: "Li e aceito os termos e condições de uso. *"  %>
+  <br>
+
+  <% end %>
+  <br>
   <br>
 
   <%= f.submit "Atualizar" , class: "btn btn-success direita"%>

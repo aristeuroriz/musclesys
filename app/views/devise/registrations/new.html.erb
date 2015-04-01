@@ -7,7 +7,7 @@
 
 	<%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), inline_errors: false, label_errors: true) do |f| %>
 
-	<%= f.alert_message "Por favor, verifique os erros a seguir:" %>
+	<%= f.alert_message "Por favor, verifique os erros a seguir:", error_summary: true  %>
 
 	<%= f.text_field :first_name, label: 'Nome',  autofocus: true%>
 
