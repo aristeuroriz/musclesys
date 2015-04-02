@@ -5,6 +5,7 @@ $(document).on("ready page:change", function() {
 </script>
 <% if user_signed_in? %>
 
+
 <ul class="nav navbar-nav">
 	<li><%= link_to('Dashboard', painel_index_path, :method=> 'get', :class=> 'fonte-menu')%></li>
 	<li><%= link_to('Treino', treinos_path , :class=> 'fonte-menu')%></li> 
@@ -21,6 +22,7 @@ $(document).on("ready page:change", function() {
 	</ul>
 
 	<% else %>
+
 
 	<ul class="nav navbar-nav">
 		<li><%= link_to('Home', root_path , :class=> 'fonte-menu')%> </li>

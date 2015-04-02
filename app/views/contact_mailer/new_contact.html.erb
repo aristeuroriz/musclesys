@@ -1,0 +1,29 @@
+<h1>Mensagem de contato - MuscleSys</h1>
+<h2>Data de envio: <%= Time.now.strftime("%d/%m/%Y - %H:%M") %></h2>
+
+
+<% if !@user.nil? %>
+
+<p><strong>Origem do contato: Usuário interno </strong></p>
+
+<p><strong>Nome: </strong><%= @user.first_name+" "+@user.last_name  %></p>
+
+<p><strong>Email: </strong><%= @user.email %></p>
+
+<% else %>
+
+<p><strong>Origem do contato: Usuário externo </strong></p>
+
+<p><strong>Nome: </strong><%= @contact.name  %></p>
+
+<p><strong>Email: </strong><%= @contact.email %></p>
+
+<% end %>
+
+
+<% if @contact.subject.present? %>
+  <p><strong>Assunto: </strong><%= @contact.subject %></p>
+<% end %>
+
+<p><strong>Mensagem:</strong></p>
+<p><%= @contact.msg %></p>

@@ -1,0 +1,18 @@
+
+<%= bootstrap_form_for(Contact.new, :url => contact_path, inline_errors: true) do |f| %>
+
+	<% if not user_signed_in?  %>
+
+	<%= f.text_field :name, label: "Nome" %>
+
+	<%= f.text_field :email, label: "Email" %>
+
+	<% end %>
+
+	<%= f.text_field :subject, label: "Assunto" %>
+
+	<%= f.text_area :msg, label: "Mensagem" %>
+
+	<%= f.submit "Enviar",  class: "btn btn-success btn-lg center-block" %>
+
+<% end %>
