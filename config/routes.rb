@@ -1,23 +1,26 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
+	get 'home/index'
 
 #  resources :academia
 
-  resources :treinos
+resources :treinos
 
  # resources :planos
 
-  resources :medidas
+ resources :medidas
 
-  resources :home
+match 'contact' => 'contact#new', :via => :get
+match 'contact' => 'contact#create', :via => :post
 
-  match 'painel/index'  => 'painel#index' , via: [:get]
+ resources :home
 
-  devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",
-  	registrations: 'registrations' }
+ match 'painel/index'  => 'painel#index' , via: [:get]
 
-   root 'home#index'
+ devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",
+ 	registrations: 'registrations' }
+
+ 	root 'home#index'
 
 
-end
+ end
