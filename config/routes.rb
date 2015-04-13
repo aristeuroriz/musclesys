@@ -18,7 +18,7 @@ match 'contact' => 'contact#create', :via => :post
  match 'painel/index'  => 'painel#index' , via: [:get]
 
  devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",
- 	registrations: 'registrations' }
+ 	registrations: 'registrations' },  :path_names => {:sign_in => 'login', :sign_out => 'logout'}
 
  	root 'home#index'
 
