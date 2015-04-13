@@ -8,9 +8,9 @@
 	keywords:['app','web','fitness','musculacao','emagrecer','imc','treinos','workout','resultados','hipertrofia'],
 	description: "App web fitness para acompanhamento nos treinos diários. Musculação, condicionamento e emagrecimento com estatísticas de qualquer lugar em qualquer hora",
 	author: "https://www.linkedin.com/in/aristeuroriz",
-	canonical:  "http://musclesys.com.br/"
+	canonical:  "http://musclesys.com.br/", 
+	twitter: {card: "summary", site: "@Muscle_Sys"}
 	%>
-
 
 	<meta name="google-site-verification" content="uI_7in9sLC6XQhr2XppMvD-uXRpeRSkZ4f-GhvMqRmA" />
 	<meta name="msvalidate.01" content="F453CB8C9A435F59E3DFFF805C9B7F74" />
@@ -52,17 +52,20 @@
 			<div class="container">
 				<div class="content">
 					<div class="row-fluid">
-					
+
 
 						<%= bootstrap_flash %> 
 
 						<%= yield %>
-
-
+	
 					</div>
 
-					<br>
-					<br>
+					<br><br>
+
+					<div class="col-md-4 col-md-offset-8 text-center">
+
+							<%= breadcrumbs pretext: "Você está aqui: ", display_single_fragment: false, style: :bootstrap, separator: "" %>
+						</div>
 
 				</div>
 
@@ -83,6 +86,6 @@
 	ga('create', 'UA-57355885-1', 'auto');
 	ga('send', 'pageview');
 </script>
- 
+
 </body>
 </html>

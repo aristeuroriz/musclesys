@@ -2,8 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://musclesys.com.br/</loc>
-<lastmod>2015-03-16T20:19:44+00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1.0</priority>
+</url>
+<url>
+  <loc>http://musclesys.com.br/users/signup</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.9</priority>
+</url>
+<url>
+  <loc>http://musclesys.com.br/users/login</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://musclesys.com.br/users/edit</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
+  <loc>http://musclesys.com.br/painel/index</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://musclesys.com.br/treinos</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>http://musclesys.com.br/medidas</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.7</priority>
 </url>
 </urlset>
