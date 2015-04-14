@@ -21,9 +21,10 @@ match 'contact' => 'contact#create', :via => :post
  	registrations: 'registrations' },  :path_names => {:sign_in => 'login', :sign_out => 'logout',
  		:sign_up => 'signup'}
 
- 		match "/users/sign_in", :to => redirect("/users/login"), via: [:get]
- 		match "/users/sign_out", :to => redirect("/users/logout"), via: [:get]
- 		match "/users/sign_up", :to => redirect("/users/signup"), via: [:get]
+ 		match "/users/sign_in", :to => redirect("/users/login"), via: [:get], :status => 301
+
+ 		match "/users/sign_out", :to => redirect("/users/logout"), via: [:get], :status => 301
+ 		match "/users/sign_up", :to => redirect("/users/signup"), via: [:get], :status => 301
 
  	root 'home#index'
 
