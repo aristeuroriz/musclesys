@@ -38,6 +38,9 @@ gem 'metamagic'
 gem 'griddler'
 gem "gretel"
 
+gem "cancan"
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'therubyracer', :platforms => :ruby

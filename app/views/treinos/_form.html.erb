@@ -3,13 +3,13 @@
 	
 	<%= f.alert_message "Por favor, preencha corretamente os campos marcados.", error_summary: true %>
 
-	<%= f.select :grupo_muscular, [[""],["Peitoral"], ["Costas"], ["Braços"], ["Ombros"], ["Abdómen"], ["Pernas"]],
-	label: 'Grupo muscular',  autofocus: true %>
+	<%= f.select :grupo_muscular, [[nil],["Peitoral"], ["Costas"], ["Braços"], ["Ombros"], ["Abdómen"], ["Pernas"]],
+	label: 'Grupo muscular' %>
 
-	<%= f.text_field :desc_exercicio, label: 'Exercício',  autofocus: true %>
+	<%= f.text_field :desc_exercicio, label: 'Exercício' %>
 
-	<%= f.select :carga, [[""],["Muito leve"], ["Leve"], ["Moderado"], ["Pesado"], ["Muito pesado"]],label:
-	'Carga',  autofocus: true %>
+	<%= f.select :carga, [[nil],["Muito leve"], ["Leve"], ["Moderado"], ["Pesado"], ["Muito pesado"]],label:
+	'Carga' %>
 
 	<%= f.number_field :serie, label: "Séries"%>
 

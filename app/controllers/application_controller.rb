@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
 
   helper :all
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.root_path, :alert => exception.message
+  end
 
 protected
 
@@ -21,6 +24,8 @@ def configure_permitted_parameters
  devise_parameter_sanitizer.for(:sign_up) << :latitude
  devise_parameter_sanitizer.for(:sign_up) << :longitude
  devise_parameter_sanitizer.for(:sign_up) << :termos
+ devise_parameter_sanitizer.for(:sign_up) << :personal_id
+
 
 
  devise_parameter_sanitizer.for(:account_update) << :first_name
@@ -33,6 +38,7 @@ def configure_permitted_parameters
  devise_parameter_sanitizer.for(:account_update) << :latitude
  devise_parameter_sanitizer.for(:account_update) << :longitude
  devise_parameter_sanitizer.for(:account_update) << :termos
+ devise_parameter_sanitizer.for(:account_update) << :personal_id
 
 
  devise_parameter_sanitizer.for(:account_update) << :current_password

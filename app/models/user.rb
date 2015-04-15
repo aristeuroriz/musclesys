@@ -1,12 +1,17 @@
 class User < ActiveRecord::Base
 
 	has_many :medidas, dependent: :destroy
+  
   has_many :treinos, dependent: :destroy
+  
+  belongs_to :plano
+
 
   # Include default devise modules. Others available are:
-  #  :lockable, :timeoutable and :omniauthable  
-  devise  :confirmable, :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable,
+  #  :lockable, :timeoutable and :omniauthable :confirmable, 
+  devise   :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable,
   :validatable, :timeoutable, :omniauthable, :omniauth_providers => [:facebook], :timeout_in => 15.minutes
+
 
   def self.find_for_facebook_oauth(auth)
       if user = User.find_by_email(auth.info.email)  # search your db for a user with email coming from fb
@@ -61,12 +66,15 @@ class User < ActiveRecord::Base
      end
    end
 
-   belongs_to :academia
-   belongs_to :plano
+      def full_name
+          "99#{self.id} - #{self.first_name} #{self.last_name}"
+      end
+
 
    validates_acceptance_of :termos
 
-   validates_presence_of :first_name, :last_name, :birth_date, :gender , :stature, :objective, :location,  :unless => 'objective.nil?'
+   validates_presence_of :first_name, :last_name, :birth_date, :gender , :stature,
+   :objective, :location,  :unless => 'objective.nil?'
 
  end
 

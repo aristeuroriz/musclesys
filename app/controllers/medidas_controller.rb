@@ -6,6 +6,7 @@ class MedidasController < ApplicationController
 
   def index
     @medidas  = Medida.where(:user_id=>current_user.id).order('created_at DESC')
+    Medida.personal
     
   end
 
@@ -34,6 +35,7 @@ def create
 
   if @medida.save
     redirect_to @medida, notice: 'Medida registrada com sucesso.'
+    Medida.personal
   else
     render action: "index"
   end
@@ -46,6 +48,7 @@ def update
 
  if @medida.update(medida_params)
   redirect_to @medida, notice: 'Medida atualizada com sucesso.'
+  Medida.personal
 else
   render action: "edit"
 end

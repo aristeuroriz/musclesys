@@ -13,29 +13,49 @@ $(document).on("ready page:change", function() {
 </ul>
 
 <ul class="nav navbar-nav pull-right">
-	<li><%=link_to(current_user.email, edit_user_registration_path, :style=>'font-size:100%;',:method=> 'get')%></li>
-	
-	<li><%= link_to((fa_icon "sign-out"), destroy_user_session_path, :method=>'delete', :class=> "tag-tooltip fa-2x",
+
+
+	<li><%=link_to(current_user.email, edit_user_registration_path, :style=>'font-size:100%;',:method=> 'get',
 		:data => {:toggle=>"tooltip"},
-		'data-original-title' => "Sair",
-		'data-placement' => 'bottom') %>   </li>     
-	</ul>
-
-	<% else %>
+		'data-original-title' => "Editar perfil",
+		'data-placement' => 'bottom' )%></li>
 
 
-	<ul class="nav navbar-nav">
-		<li><%= link_to('Home', root_path , :class=> 'fonte-menu')%> </li>
-		<li><%= link_to('Blog', root_path , :class=> 'fonte-menu')%></li> 
-	</ul>
+		<% if current_user.role == "admin" and current_user.admin == true %>
 
-	<ul class="nav navbar-nav pull-right">
+		<li><%= link_to((fa_icon "user-secret"), '/admin' , :class=> 'tag-tooltip fa-2x',
+			:data => {:toggle=>"tooltip"},
+			'data-original-title' => "Administrar",
+			'data-placement' => 'bottom' )%></li>
+		<% end %>
 
-		<li><%= link_to('Criar conta grátis', new_user_registration_path, :method=> 'get' , :class=> 'fonte-menu')%> </li>
+			<% if current_user.role == "personal" or current_user.role == "admin"%>
 
-		<li><%= link_to( "Entrar" ,  new_user_session_path, :class=> "fonte-menu" )%>  </li>
-	</ul>
+			<li><%= link_to (fa_icon "users"), '#aluno',:data => { :toggle =>"modal" }, :class=> 'tag-tooltip fa-2x'%></li>
 
-	<% end %>
+			<% end %>
+
+			<li><%= link_to((fa_icon "sign-out"), destroy_user_session_path, :method=>'delete', :class=> "tag-tooltip fa-2x",
+				:data => {:toggle=>"tooltip"},
+				'data-original-title' => "Sair",
+				'data-placement' => 'bottom') %>   </li>     
+			</ul>
+
+			<% else %>
+
+
+			<ul class="nav navbar-nav">
+				<li><%= link_to('Home', root_path , :class=> 'fonte-menu')%> </li>
+				<li><%= link_to('Blog', root_path , :class=> 'fonte-menu')%></li> 
+			</ul>
+
+			<ul class="nav navbar-nav pull-right">
+
+				<li><%= link_to('Criar conta grátis', new_user_registration_path, :method=> 'get' , :class=> 'fonte-menu')%> </li>
+
+				<li><%= link_to( "Entrar" ,  new_user_session_path, :class=> "fonte-menu" )%>  </li>
+			</ul>
+
+			<% end %>
 
 

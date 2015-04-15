@@ -23,6 +23,10 @@
 
   <%= f.password_field :password_confirmation,label: 'Confirme sua senha *', autocomplete: "off" %>
 
+   <% end %>
+
+  <% if not current_user.provider.present? %>
+
    <%= f.password_field :current_password, autocomplete: "off", help: "A senha atual é obrigatória.", label: "Senha atual *" %>
    
   <% end %>
@@ -56,14 +60,22 @@
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
 
+  <br>
+    
+
+    <%= 
+    #f.collection_select :personal_id, (User.all).order(:first_name ).where(:role => 'personal') ,
+  #:id, :full_name, :include_blank => true, :label => "Vincular um personal trainer", help: "Se você não tem um personal, deixe em branco"
+  %>
+  
+
    <% if current_user.sign_in_count == 1 or current_user.location.blank?%> 
 
-  <br>
+
   <%= f.check_box :termos, label: "Li e aceito os termos e condições de uso. *"  %>
   <br>
 
   <% end %>
-  <br>
   <br>
 
   <%= f.submit "Atualizar" , class: "btn btn-success btn-lg pull-right"%>

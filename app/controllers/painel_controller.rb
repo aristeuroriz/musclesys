@@ -8,10 +8,12 @@ class PainelController < ApplicationController
 		t = Time.now
 		t.strftime("%m/%Y")
 
-		m4  = Medida.limit(4).where(:user_id=>current_user.id).order('data_medida ASC')
-		gon.m1 = Medida.where(:user_id=>current_user.id).first
-		altura = current_user.stature
-		
+
+			m4  = Medida.limit(4).where(:user_id=>current_user.id).order('data_medida ASC')
+			gon.m1 = Medida.where(:user_id=>current_user.id).first
+			altura = current_user.stature
+	
+
 		if current_user.stature.blank? or current_user.stature == 0
 			redirect_to edit_user_registration_path, :alert => "Para calcular-mos seu IMC precisamos da sua estatura."
 		end

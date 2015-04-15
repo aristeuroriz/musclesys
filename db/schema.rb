@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150319204234) do
 
-  create_table "academia", force: :cascade do |t|
-    t.string   "nome_acad",  limit: 255
-    t.string   "localidade", limit: 255
-    t.string   "instrutor",  limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "medidas", force: :cascade do |t|
     t.date     "data_medida"
     t.float    "peso",         limit: 24
@@ -37,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150319204234) do
     t.float    "perna_d",      limit: 24
     t.float    "perna_e",      limit: 24
     t.text     "obs",          limit: 65535
+    t.integer  "personal_id",  limit: 4
     t.integer  "user_id",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -68,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150319204234) do
     t.string   "carga",          limit: 255
     t.integer  "serie",          limit: 4
     t.string   "repeticoes",     limit: 255
+    t.integer  "personal_id",    limit: 4
     t.integer  "user_id",        limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -86,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150319204234) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
+    t.integer  "plano_id",               limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "first_name",             limit: 255
@@ -97,10 +92,11 @@ ActiveRecord::Schema.define(version: 20150319204234) do
     t.string   "location",               limit: 255
     t.string   "latitude",               limit: 255
     t.string   "longitude",              limit: 255
-    t.integer  "planos_id",              limit: 4
-    t.integer  "academias_id",           limit: 4
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
+    t.boolean  "admin",                  limit: 1
+    t.string   "role",                   limit: 255
+    t.integer  "personal_id",            limit: 4
     t.string   "confirmation_token",     limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -110,6 +106,7 @@ ActiveRecord::Schema.define(version: 20150319204234) do
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["plano_id"], name: "index_users_on_plano_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
