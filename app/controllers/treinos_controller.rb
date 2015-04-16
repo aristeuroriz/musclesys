@@ -7,7 +7,7 @@ class TreinosController < ApplicationController
 
   def index
     @treinos  = Treino.where(:user_id=>current_user.id).order('grupo_muscular ASC')
-    Treino.personal
+    # Treino.personal
   end
 
   def show
@@ -31,7 +31,7 @@ class TreinosController < ApplicationController
 
     if @treino.save
       redirect_to @treino, notice: 'Treino adicionado com sucesso.'
-      Treino.personal
+     #  Treino.personal
     else
       render action: "index"
     end
@@ -42,7 +42,7 @@ class TreinosController < ApplicationController
 
     if @treino.update(treino_params)
       redirect_to @treino, notice: 'Treino atualizado com sucesso.'
-      Treino.personal
+     # Treino.personal
     else
       render action: "edit"
     end
