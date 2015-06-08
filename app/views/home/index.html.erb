@@ -22,9 +22,11 @@
      </div>
    </div>
 
-   <!-- Modal de de mensagem inicial -->
+   <!-- Modal de mensagem inicial -->
 
- <%= javascript_include_tag "bemvindo.js" %>
+   <% if user_signed_in? %>
+
+        <%= javascript_include_tag "bemvindo.js" %>
 
    <div class="modal fade" id="bemvindo" tabindex="-1" role="dialog" aria-labelledby="BemVindo" >
     <div class="modal-dialog">
@@ -54,6 +56,8 @@
     </div>
   </div>
 
-   <!-- Fim ||| Modal de de mensagem inicial -->
+  <!-- Fim ||| Modal de de mensagem inicial -->
+
+   <% end %>
 
 </div>
