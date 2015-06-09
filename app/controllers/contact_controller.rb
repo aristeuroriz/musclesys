@@ -23,7 +23,7 @@ class ContactController < ApplicationController
       redirect_to(root_path, :notice => "Mensagem enviada com sucesso. Obrigado pelo contato! ;-)")
 
     else
-      format.json { render json: @contact.errors, status: :unprocessable_entity }
+      # format.json { render json: @contact.errors, status: :unprocessable_entity }
       flash.now.alert = "Por favor, preencha os campos obrigatórios."
            # render :new
 
