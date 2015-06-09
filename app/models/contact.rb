@@ -8,11 +8,11 @@ class Contact
 
 
     # Teste de validação precisa ser corrigido
-    #if !@user.nil?
-     #validates :subject, :msg, :presence => true
-   # else
-    # validates :name, :email, :subject, :msg, :presence => true
-   # end
+    if user_signed_in?
+     validates :subject, :msg, :presence => true
+   else
+    validates :name, :email, :subject, :msg, :presence => true
+   end
 
 
  def initialize(attributes = {})

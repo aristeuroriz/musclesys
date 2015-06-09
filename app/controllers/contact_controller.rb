@@ -25,7 +25,6 @@ class ContactController < ApplicationController
     else
       # format.json { render json: @contact.errors, status: :unprocessable_entity }
       flash.now.alert = "Por favor, preencha os campos obrigatórios."
-           # render :new
 
     end
   end
