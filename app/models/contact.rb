@@ -6,13 +6,12 @@ class Contact
 
   attr_accessor :name, :email, :subject, :msg
 
-
     # Teste de validação precisa ser corrigido
-    if user_signed_in?
-     validates :subject, :msg, :presence => true
-   else
-    validates :name, :email, :subject, :msg, :presence => true
-   end
+    #if user_signed_in?
+    # validates :subject, :msg, :presence => true
+   #else
+    #validates :name, :email, :subject, :msg, :presence => true
+   #end
 
 
  def initialize(attributes = {})
