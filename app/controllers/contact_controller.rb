@@ -15,14 +15,15 @@ class ContactController < ApplicationController
   def create
     @contact = Contact.new(params[:contact])
     # @user = Contact.new(params[:user])
+    status = verify_google_recptcha(SECRET_KEY,params["g-recaptcha-response"])
 
-
-    if @contact.valid?
+    if @contact.valid? && status
       ContactMailer.new_contact(current_user, @contact).deliver_now
 
       redirect_to(root_path, :notice => "Mensagem enviada com sucesso. Obrigado pelo contato! ;-)")
 
     else
+      format.json { render json: @contact.errors, status: :unprocessable_entity }
       flash.now.alert = "Por favor, preencha os campos obrigatórios."
            # render :new
 
