@@ -13,6 +13,8 @@ ActionMailer::Base.smtp_settings = {
 
   config.action_mailer.default_url_options = { protocol: 'https', :host => 'musclesys.com.br' }
 
+  SECRET_KEY = ENV['RECAPTCHA_SECRET_KEY']
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

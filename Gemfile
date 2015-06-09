@@ -38,6 +38,8 @@ gem 'metamagic'
 gem 'griddler'
 gem "gretel"
 
+gem "recaptcha", :require => "recaptcha/rails"
+
 gem "cancan"
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 

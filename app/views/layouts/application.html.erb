@@ -14,6 +14,8 @@
 	<meta name="google-site-verification" content="uI_7in9sLC6XQhr2XppMvD-uXRpeRSkZ4f-GhvMqRmA" />
 	<meta name="msvalidate.01" content="1BC3099B6AF0FB25E3C9AAC8153597FE" />
 
+	<script src='https://www.google.com/recaptcha/api.js?hl=pt-BR'></script>
+
 	<%= favicon_link_tag 'favicon.ico' %>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -55,7 +57,7 @@
 
 						<div class="text-center">
 							
-								<%= bootstrap_flash %> 
+							<%= bootstrap_flash %> 
 							
 						</div>
 
@@ -80,14 +82,14 @@
 	</div>
 
 	<script type="text/javascript">
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	ga('create', 'UA-57355885-1', 'auto');
-	ga('send', 'pageview');
-</script>
+		ga('create', 'UA-57355885-1', 'auto');
+		ga('send', 'pageview');
+	</script>
 
 </body>
 </html>

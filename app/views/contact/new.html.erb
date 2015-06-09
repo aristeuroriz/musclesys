@@ -1,18 +1,22 @@
 
 <%= bootstrap_form_for(Contact.new, :url => contact_path, inline_errors: true) do |f| %>
 
-	<% if not user_signed_in?  %>
+<% if not user_signed_in?  %>
 
-	<%= f.text_field :name, label: "Nome" %>
+<%= f.text_field :name, label: "Nome" %>
 
-	<%= f.text_field :email, label: "Email" %>
+<%= f.text_field :email, label: "Email" %>
 
-	<% end %>
+<% end %>
 
-	<%= f.text_field :subject, label: "Assunto" %>
+<%= f.text_field :subject, label: "Assunto" %>
 
-	<%= f.text_area :msg, label: "Mensagem" %>
+<%= f.text_area :msg, label: "Mensagem" %>
 
-	<%= f.submit "Enviar",  class: "btn btn-success btn-lg center-block" %>
+<center>
+	<div class="g-recaptcha" data-sitekey="6LfgEQgTAAAAABWJvNhDJCY1x4UF0n3GP0TEqD2Z"></div>
+</center>
+<br>
+<%= f.submit "Enviar",  class: "btn btn-success btn-lg center-block" %>
 
 <% end %>
