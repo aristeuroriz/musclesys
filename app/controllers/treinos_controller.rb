@@ -6,6 +6,7 @@ class TreinosController < ApplicationController
 
 
   def index
+ 
     @treinos  = Treino.where(:user_id=>current_user.id).order('grupo_muscular ASC')
     # Treino.personal
   end
