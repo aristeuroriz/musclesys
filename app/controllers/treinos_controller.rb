@@ -6,9 +6,13 @@ class TreinosController < ApplicationController
 
 
   def index
- 
+    
+    if current_user.role == 'personal'
+    @treinos  = Treino.where(:personal_id=>current_user.id).order('user_id ASC')
+    else
     @treinos  = Treino.where(:user_id=>current_user.id).order('grupo_muscular ASC')
-    # Treino.personal
+    end
+
   end
 
   def show
