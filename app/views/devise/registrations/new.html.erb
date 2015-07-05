@@ -10,73 +10,81 @@
 
 	<%= f.alert_message "Por favor, verifique os erros a seguir:", error_summary: true  %>
 
-	<%= f.text_field :first_name, label: 'Nome',  autofocus: true%>
+	<div class="row-fluid">
+		<div class="col-md-6">
+			<%= f.text_field :first_name, label: 'Nome',  autofocus: true%>
+		</div>
+		<div class="col-md-6">
+			<%= f.text_field :last_name, label: 'Sobrenome',  autofocus: true%>
 
-	<%= f.text_field :last_name, label: 'Sobrenome',  autofocus: true%>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<%= f.email_field :email,label: 'E-mail',  autofocus: true%>
 
-	<%= f.email_field :email,label: 'E-mail',  autofocus: true%>
+		<%= f.file_field :avatar, label: 'Foto do perfil', as: :file %>
 
-	<%= f.password_field :password,label: 'Senha', help: "No mínimo #{@minimum_password_length} caracteres", autocomplete:"off"%>
-	
-	<%= f.password_field :password_confirmation,label: 'Confirme sua senha *', autocomplete: "off" %>
-	
-	<%= f.date_select :birth_date, label: 'Data de nascimento', :start_year => 1930, :end_year => Date.current.year - 6,  autofocus: true%>
+		<%= f.password_field :password,label: 'Senha', help: "No mínimo #{@minimum_password_length} caracteres", autocomplete:"off"%>
 
-	<%= f.select :gender, [[nil],["Masculino"], ["Feminino"]],label: 'Sexo',  autofocus: true %>
-	
-	<%= f.number_field :stature,label: 'Estatura', append: "cm", autofocus: true, control_col: "col-sm-2" %>
-	
-	<%= f.select :objective, [[nil],["Hipertrofia"], ["Condicionamento"], ["Emagrecimento"]],label: 'Objetivo',  autofocus: true %>
+		<%= f.password_field :password_confirmation,label: 'Confirme sua senha *', autocomplete: "off" %>
+
+		<%= f.date_select :birth_date, label: 'Data de nascimento', :start_year => 1930, :end_year => Date.current.year - 6,  autofocus: true%>
+
+		<%= f.select :gender, [[nil],["Masculino"], ["Feminino"]],label: 'Sexo',  autofocus: true %>
+
+		<%= f.number_field :stature,label: 'Estatura', append: "cm", autofocus: true, control_col: "col-sm-2" %>
+
+		<%= f.select :objective, [[nil],["Hipertrofia"], ["Condicionamento"], ["Emagrecimento"]],label: 'Objetivo',  autofocus: true %>
 
 	<%= #f.collection_select :personal_id, (User.all).order(:first_name ).where(:role => 'personal') ,
   #:id, :full_name, :include_blank => true, :label => "Vincular um personal trainer", help: "Se você não tem um personal, deixe em branco"
   %>
-	
-	<%= f.text_field :location, label: 'Cidade',  autofocus: true,  help: "Ex.: Brasília" %>
+
+  <%= f.text_field :location, label: 'Cidade',  autofocus: true,  help: "Ex.: Brasília" %>
 
 
-	<script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.min.js"></script>
 
-	<script type="text/javascript" src="jquery-ui.custom.min.js"></script> 
+  <script type="text/javascript" src="jquery-ui.custom.min.js"></script> 
 
-	<div class='local'>
+  <div class='local'>
 
-		<div id="mapa" style="height: 200px; width: 100%"></div>
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  	<div id="mapa" style="height: 200px; width: 100%"></div>
+  	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
-		<!-- Arquivo de inicialização do mapa -->
-		<%= javascript_include_tag "mapa.js" %>
+  	<!-- Arquivo de inicialização do mapa -->
+  	<%= javascript_include_tag "mapa.js" %>
 
-	</div>
+  </div>
 
-	<%= f.hidden_field :latitude %>
-	<%= f.hidden_field :longitude %>
-	<br>
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
+  <br>
 
-	<textarea class="form-control" disabled name="nowrap"  rows="8" cols="40" wrap="off">
-		<%= render "layouts/termos" %>
-	</textarea>
-	
-	<br>
-	<%= f.check_box :termos, label: "Li e aceito os termos e condições de uso. *"  %>
+  <textarea class="form-control" disabled name="nowrap"  rows="8" cols="40" wrap="off">
+  	<%= render "layouts/termos" %>
+  </textarea>
 
-	<br><br>
+  <br>
+  <%= f.check_box :termos, label: "Li e aceito os termos e condições de uso. *"  %>
+
+  <br><br>
 
 
-	<%= f.submit "Criar minha conta", class: "btn btn-success btn-lg center-block", :style=>'width:265px !important;'%>
-	<br>
-	<div class="text-center" style="color: gray;">———————— ou ————————</div>
+  <%= f.submit "Criar minha conta", class: "btn btn-success btn-lg center-block", :style=>'width:300px !important;'%>
+  <br>
+  <div class="text-center" style="color: gray;"> ou </div>
 
-	<br>
-	<% end %>
-	<form method="get" action="/users/auth/facebook">
-		<button class="btn btn-social btn-facebook btn-lg center-block">
-			<i class="fa fa-facebook" style="margin-top: 3%;"></i>
-			Entrar com Facebook
-		</button>
-	</form>
-	<br>
-
-	<br>
-	<%= render "devise/shared/links" %>
+  <br>
+  <% end %>
+  <form method="get" action="/users/auth/facebook">
+  	<button class="btn btn-social btn-facebook btn-lg center-block" style="width:300px !important;">
+  		<i class="fa fa-facebook" style="margin-top: 3%;"></i>
+  		Entrar com Facebook
+  	</button>
+  </form>
+  <br>
+</div>
+<br>
+<%= render "devise/shared/links" %>
 </div>

@@ -15,7 +15,9 @@ $(document).on("ready page:change", function() {
 <ul class="nav navbar-nav pull-right">
 
 
-	<li><%=link_to(current_user.email, edit_user_registration_path, :style=>'font-size:100%;',:method=> 'get',
+
+	<li>
+	<%=link_to(current_user.email, edit_user_registration_path, :style=>'font-size:100%;',:method=> 'get',
 		:data => {:toggle=>"tooltip"},
 		'data-original-title' => "Editar perfil",
 		'data-placement' => 'bottom' )%></li>

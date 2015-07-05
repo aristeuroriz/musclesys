@@ -38,6 +38,8 @@ gem 'metamagic'
 gem 'griddler'
 gem "gretel"
 
+gem "paperclip", "~> 4.3"
+
 gem "recaptcha", :require => "recaptcha/rails"
 
 gem "cancan"

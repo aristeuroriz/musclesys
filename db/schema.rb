@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319204234) do
+ActiveRecord::Schema.define(version: 20150705205844) do
 
   create_table "medidas", force: :cascade do |t|
     t.date     "data_medida"
@@ -102,6 +102,10 @@ ActiveRecord::Schema.define(version: 20150319204234) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email",      limit: 255
     t.string   "image_url",              limit: 255
+    t.string   "avatar_file_name",       limit: 255
+    t.string   "avatar_content_type",    limit: 255
+    t.integer  "avatar_file_size",       limit: 4
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

@@ -10,6 +10,14 @@ $colHighlight   : #ecdbff;
 
 label.required:after {content:" *"; } 
 
+.img-circle{
+
+	background-color: lightgray;
+	display: block;
+	border-radius:50%;
+}
+
+
 .strong{
 	font-weight: bold;
 

@@ -1,66 +1,79 @@
 <div class="col-md-6 col-md-offset-3 text-left">
   <div class='txt-centro'>
     <h2>Alterar cadastro</h2>
+    <br>
   </div>
 
   <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), label_errors: false, inline_errors: true, html: { method: :put }) do |f| %>
 
   <%= f.alert_message "Por favor, preencha corretamente os campos marcados.", error_summary: true %>
 
-  <%= f.text_field :first_name, label: 'Nome',  autofocus: true%>
+  <div class="row-fluid">
+    <div class="col-md-12">
+      <center>
+        <%= image_tag @user.avatar.url(:thumb), class: "img-responsive img-circle" %>
+      </center>
+      <%= f.file_field :avatar, label: 'Alterar foto', as: :file %>
+    </div>
+    <div class="col-md-6">
+      <%= f.text_field :first_name, label: 'Nome',  autofocus: true%>
+    </div>
+    <div class="col-md-6">
+      <%= f.text_field :last_name, label: 'Sobrenome',  autofocus: true%>
 
-  <%= f.text_field :last_name, label: 'Sobrenome',  autofocus: true%>
-
-  <%= f.email_field :email,label: 'E-mail',  autofocus: true%>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-  <div>Atualmente à espera de confirmação: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <% if current_user.reset_password_token.present? %> 
-
-  <%= f.password_field :password,label: 'Senha', help: "Em branco para manter a atual", autocomplete:"off"%>
-
-  <%= f.password_field :password_confirmation,label: 'Confirme sua senha *', autocomplete: "off" %>
-
-   <% end %>
-
-  <% if not current_user.provider.present? %>
-
-   <%= f.password_field :current_password, autocomplete: "off", help: "A senha atual é obrigatória.", label: "Senha atual *" %>
-   
-  <% end %>
-
-  <%= f.date_select :birth_date, label: 'Data de nascimento', :start_year => 1930, :end_year => Date.current.year - 6,  autofocus: true%>
-
-  <%= f.select :gender, [[nil],["Masculino"], ["Feminino"]],label: 'Sexo',  autofocus: true %>
-  
-  <%= f.number_field :stature, label: 'Estatura', append: "cm", autofocus: true %>
-  
-  <%= f.select :objective, [[nil],["Hipertrofia"], ["Condicionamento"], ["Emagrecimento"]] ,label: 'Objetivo',  autofocus: true %>
-  
-  <%= f.text_field :location, label: 'Cidade',  autofocus: true,  help: "Ex.: Brasília" %>
-
-
-  <script type="text/javascript" src="jquery.min.js"></script>
-
-  <script type="text/javascript" src="jquery-ui.custom.min.js"></script> 
-
-  <div class='local'>
-
-    <div id="mapa" style="height: 200px; width: 100%"></div>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-
-    <!-- Arquivo de inicialização do mapa -->
-    <%= javascript_include_tag "mapa.js" %>
-
-
+    </div>
   </div>
+  <div class="col-md-12">
+    <%= f.email_field :email, label: 'E-mail',  autofocus: true%>
 
-  <%= f.hidden_field :latitude %>
-  <%= f.hidden_field :longitude %>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Atualmente à espera de confirmação: <%= resource.unconfirmed_email %></div>
+    <% end %>
 
-  <br>
+    <% if current_user.reset_password_token.present? %> 
+
+    <%= f.password_field :password,label: 'Senha', help: "Em branco para manter a atual", autocomplete:"off"%>
+
+    <%= f.password_field :password_confirmation,label: 'Confirme sua senha *', autocomplete: "off" %>
+
+    <% end %>
+
+    <% if not current_user.provider.present? %>
+
+    <%= f.password_field :current_password, autocomplete: "off", help: "A senha atual é obrigatória.", label: "Senha atual *" %>
+
+    <% end %>
+
+    <%= f.date_select :birth_date, label: 'Data de nascimento', :start_year => 1930, :end_year => Date.current.year - 6,  autofocus: true%>
+
+    <%= f.select :gender, [[nil],["Masculino"], ["Feminino"]],label: 'Sexo',  autofocus: true %>
+
+    <%= f.number_field :stature, label: 'Estatura', append: "cm", autofocus: true %>
+
+    <%= f.select :objective, [[nil],["Hipertrofia"], ["Condicionamento"], ["Emagrecimento"]] ,label: 'Objetivo',  autofocus: true %>
+
+    <%= f.text_field :location, label: 'Cidade',  autofocus: true,  help: "Ex.: Brasília" %>
+
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+
+    <script type="text/javascript" src="jquery-ui.custom.min.js"></script> 
+
+    <div class='local'>
+
+      <div id="mapa" style="height: 200px; width: 100%"></div>
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+      <!-- Arquivo de inicialização do mapa -->
+      <%= javascript_include_tag "mapa.js" %>
+
+
+    </div>
+
+    <%= f.hidden_field :latitude %>
+    <%= f.hidden_field :longitude %>
+
+    <br>
     
 
     <%= 
@@ -69,7 +82,7 @@
   %>
   
 
-   <% if current_user.sign_in_count == 1 or current_user.location.blank?%> 
+  <% if current_user.sign_in_count == 1 or current_user.location.blank?%> 
 
 
   <%= f.check_box :termos, label: "Li e aceito os termos e condições de uso. *"  %>
@@ -82,9 +95,11 @@
 
 
   <% end %>
-  <br><br><br>
 
-  <%= link_to "Voltar", :back %>
-  <br><br>
+</div>
+<br><br><br>
+
+<%= link_to "Voltar", :back %>
+<br><br>
 </div>
 
