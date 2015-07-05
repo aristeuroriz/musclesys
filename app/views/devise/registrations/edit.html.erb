@@ -10,9 +10,15 @@
 
   <div class="row-fluid">
     <div class="col-md-12">
-      <center>
-        <%= image_tag @user.avatar.url(:thumb), class: "img-responsive img-circle" %>
-      </center>
+      
+
+      <% if current_user.image_url? %>
+        <%= image_tag current_user.image_url,  class: "img-responsive img-circle img-face center-block"  %>
+        <% else %>
+        <%= image_tag @user.avatar.url(:medium), class: "img-responsive img-circle center-block" %>
+        <% end %>
+    
+    
       <%= f.file_field :avatar, label: 'Alterar foto', as: :file %>
     </div>
     <div class="col-md-6">

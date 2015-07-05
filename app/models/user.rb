@@ -12,17 +12,9 @@ class User < ActiveRecord::Base
 
 
   # Include default devise modules. Others available are:
-  #  :lockable, :timeoutable and :omniauthable  :confirmable,
-  devise   :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable,
+  #  :lockable, :timeoutable and :omniauthable  
+  devise :confirmable,  :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable,
   :validatable, :timeoutable, :omniauthable, :omniauth_providers => [:facebook], :timeout_in => 15.minutes
-
-def avatar_remote_url=(image_url)
-    self.avatar = URI.parse(image_url)
-    # Assuming url_value is http://example.com/photos/face.png
-    # avatar_file_name == "face.png"
-    # avatar_content_type == "image/png"
-    @avatar_remote_url = image_url
-  end
 
 
   def self.find_for_facebook_oauth(auth)
