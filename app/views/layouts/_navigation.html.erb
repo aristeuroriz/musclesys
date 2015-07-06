@@ -5,71 +5,78 @@
 </script>
 
 <% if user_signed_in? %>
-<ul class="nav navbar-nav">
-    <li><%= link_to('Dashboard', painel_path, :method=> 'get', :class=> 'fonte-menu')%></li>
-    <li><%= link_to('Treino', treinos_path , :class=> 'fonte-menu')%></li> 
-    <li><%= link_to('Medidas', medidas_path, :class=> 'fonte-menu' )%></li>  
-</ul>
+<div class="left-menu">
+    <ul class="nav navbar-nav">
+        <li><%= link_to('Dashboard', painel_path, :method=> 'get', :class=> 'fonte-menu')%></li>
+        <li><%= link_to('Treino', treinos_path , :class=> 'fonte-menu')%></li> 
+        <li><%= link_to('Medidas', medidas_path, :class=> 'fonte-menu' )%></li>  
+    </ul>
+</div>
+<div class="user-menu">
+    <div class="dropdown pull-right">
 
-<div class="dropdown pull-right">
+        <% if current_user.image_url? %>
 
-    <% if current_user.image_url? %>
+        <%= content_tag(:button, class: "profile-menu dropdown-toggle fonte-menu", id: "dropdownMenu1", :data => { :toggle =>"dropdown" }) do %>
 
-    <%= content_tag(:button, class: "profile-menu dropdown-toggle fonte-menu", id: "dropdownMenu1", :data => { :toggle =>"dropdown" }) do %>
+        <%= (image_tag current_user.image_url, :style => "width:40px;height:40px;vertical-align:middle; border:5pxsolid;border-radius:50px;") +'<span>'.html_safe+" "+current_user.first_name+" "+current_user.last_name+" "+'</span><b class="caret"></b>'.html_safe do %>
 
-    <%= (image_tag current_user.image_url, :style => "width:40px;height:40px;vertical-align:middle; border:5pxsolid;border-radius:50px;") +'<span>'.html_safe+" "+current_user.first_name+" "+current_user.last_name+" "+'</span><b class="caret"></b>'.html_safe do %>
+        <% end %>
+        <% end %>
 
-    <% end %>
-    <% end %>
-        
         <% else %>
 
-         <%= content_tag(:button, class: "profile-menu dropdown-toggle fonte-menu", id: "dropdownMenu1", :data => { :toggle =>"dropdown" }) do %>
+        <%= content_tag(:button, class: "profile-menu dropdown-toggle fonte-menu", id: "dropdownMenu1", :data => { :toggle =>"dropdown" }) do %>
 
-    <%= (image_tag current_user.avatar.url, :style => "width:40px;height:40px;vertical-align:middle; border:5pxsolid;border-radius:50px;") +'<span>'.html_safe+" "+current_user.first_name+" "+current_user.last_name+" "+'</span><b class="caret"></b>'.html_safe do %>
+        <%= (image_tag current_user.avatar.url, :style => "width:40px;height:40px;vertical-align:middle; border:5pxsolid;border-radius:50px;") +'<span>'.html_safe+" "+current_user.first_name+" "+current_user.last_name+" "+'</span><b class="caret"></b>'.html_safe do %>
 
-    <% end %>
-    <% end %>
+        <% end %>
+        <% end %>
 
-       
+
 
         <% end %>
 
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li><%=link_to "Editar minha conta", edit_user_registration_path, class: 'fonte-menu',
-            :method=> 'get'%></li>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><%=link_to "Ver perfil", '/perfil', class: 'fonte-menu',
+                :method=> 'get'%></li>
 
-            <% if current_user.role == "admin" and current_user.admin == true %>
+                <% if current_user.role == "admin" and current_user.admin == true %>
 
-            <li><%= link_to 'Administrar', '/admin' , :class=> 'fonte-menu'%></li>
-            <% end %>
+                <li><%= link_to 'Administrar', '/admin' , :class=> 'fonte-menu'%></li>
+                <% end %>
 
-            <% if current_user.role == "personal" or current_user.role == "admin"%>
+                <% if current_user.role == "personal" or current_user.role == "admin"%>
 
-            <li><%= link_to 'Meus alunos', '#aluno',:data => { :toggle =>"modal" }, :class=> 'fonte-menu'%></li>
+                <li><%= link_to 'Meus alunos', '#aluno',:data => { :toggle =>"modal" }, :class=> 'fonte-menu'%></li>
 
-            <% end %>
+                <% end %>
 
 
-            <li><%= link_to 'Sair', destroy_user_session_path, :method=>'delete', :class=> "fonte-menu" %></li>
-        </ul>
+                <li><%= link_to 'Sair', destroy_user_session_path, :method=>'delete', :class=> "fonte-menu" %></li>
+            </ul>
+        </div>
     </div>
+
 
 
     <% else %>
 
+    <div class="out-left-menu">
+        <ul class="nav navbar-nav">
+            <li><%= link_to('Home', root_path , :class=> 'fonte-menu')%> </li>
+            <li><%= link_to('Blog', root_path , :class=> 'fonte-menu')%></li> 
+        </ul>
+    </div>
+    <div class="out-right-menu">
+        <ul class="nav navbar-nav pull-right">
 
-    <ul class="nav navbar-nav">
-        <li><%= link_to('Home', root_path , :class=> 'fonte-menu')%> </li>
-        <li><%= link_to('Blog', root_path , :class=> 'fonte-menu')%></li> 
-    </ul>
+            <li><%= link_to('Criar conta grátis', new_user_registration_path, :method=> 'get' , :class=> 'fonte-menu')%></li>
 
-    <ul class="nav navbar-nav pull-right">
+            <li><%= link_to 'Entrar', new_user_session_path,:data => { :toggle =>"login" }, :class=> 'fonte-menu'%></li>
 
-        <li><%= link_to('Criar conta grátis', new_user_registration_path, :method=> 'get' , :class=> 'fonte-menu')%></li>
-
-        <li><%= link_to( "Entrar" ,  new_user_session_path, :class=> "fonte-menu" )%></li>
-    </ul>
+        </ul>
+    </div>
 
     <% end %>
 

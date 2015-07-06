@@ -13,6 +13,8 @@ match 'contact' => 'contact#create', :via => :post
 
  resources :home
 
+ resources :perfil
+
  match 'painel/index'  => 'painel#index' , via: [:get], as: :painel
 
  devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",

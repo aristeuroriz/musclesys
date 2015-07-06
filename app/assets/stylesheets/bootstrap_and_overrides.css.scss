@@ -7,8 +7,23 @@ $bgDefault      : #110022;
 $bgHighlight    : #00ffff;
 $colDefault     : #ecf0f1;
 $colHighlight   : #ecdbff;
+$bgDark         : #3B3B35;
 
-label.required:after {content:" *"; } 
+label.required:after {content:" *"; }
+
+.borda{
+
+    border-width: medium;
+    border-style: solid;
+    border-color: lightgray;
+   // background-color: $bgDark;
+}
+
+.text-profile{
+    font-size: 185%;
+    color: $bgDark;
+    line-height:200%;
+}
 
 .profile-menu{
     background-color: $bgDefault;

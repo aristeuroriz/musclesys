@@ -1,0 +1,33 @@
+<div class="row-fluid">
+	<div class="col-md-2"></div>
+	<div class="col-md-8 ">
+		<div class='txt-centro'>
+			<h2>Meu perfil</h2>
+			<br>
+		</div>
+		<div class="col-md-12">
+			<% if current_user.image_url? %>
+			<%= image_tag current_user.image_url,  class: "img-responsive img-circle img-edit center-block"  %>
+			<% else %>
+			<%= image_tag current_user.avatar.url, class: "img-responsive img-circle img-edit center-block" %>
+			<% end %>
+			<br>
+
+			<div class="col-md-12">
+				<p class="text-profile"><b>Nome: </b><%= current_user.first_name+" "+current_user.last_name %></p>
+				<p class="text-profile"><b>Email: </b><%= current_user.email %></p>
+				<p class="text-profile"><b>Nascimento: </b><%= current_user.birth_date %></p>
+				<p class="text-profile"><b>Gênero: </b><%= current_user.gender %></p>
+				<p class="text-profile"><b>Estatura: </b><%= current_user.stature %> cm</p>
+				<p class="text-profile"><b>Objetivo: </b><%= current_user.objective %></p>
+				<p class="text-profile"><b>Localização: </b><%= current_user.location %></p>
+			</div>
+
+			<%= button_to "Alterar meus dados", edit_user_registration_path, class: "btn btn-warning btn-lg center-block", :method=> 'get'%>
+
+		</div>
+		
+	</div>
+	<div class="col-md-2"></div>
+	<br><br>
+</div>
