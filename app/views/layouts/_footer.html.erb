@@ -1,100 +1,100 @@
-<div class="conteiner">
-	<div class="row">
+<div id="footer">
+	<div class="conteiner">
+		<div class="row">
 
-		<div class="col-md-4">
+			<div class="col-md-4">
+
+			</div>
+
+			<div class="col-md-4" id="p2"> 
+
+				<br>
+
+				<%= link_to (image_tag "google-256.png",class: "social-icon" ), 'https://plus.google.com/114926340790891601148', rel: 'publisher',  :target => "_blank"%> 
+				<%= link_to (image_tag "facebook-256.png",class: "social-icon"), 'https://www.facebook.com/pages/MuscleSys/1019521451407294',  :target => "_blank" %> 
+				<%= link_to (image_tag "twitter-256.png",class: "social-icon" ), 'https://twitter.com/Muscle_Sys',  :target => "_blank" %> 
+
+				<%= link_to (image_tag "email-256.png",class: "social-icon" ), '#contato',:data => { :toggle =>"modal" } %>
+
+				<h4>© 2014 MuscleSys. Todos os direitos reservados. <br> Desenvolvido por  <%= link_to('Aristeu Roriz Neto', 'http://aristeuroriz.github.io', :target => '_blank', class: "arneti"  )%> </h4>
+
+				<h4>Brasil / Goiás</h4>
+				<%=image_tag "brasil_goias.jpg", class: "band" %>
 
 
+			</div>
+
+			<div class="col-md-4">
+
+
+
+			</div>
 		</div>
 
-		<div class="col-md-4" id="p2"> 
+		<div id="contato" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contatoLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h3 id="contatoLabel">Gostaríamos muito de ouvir de você</h3>
+					</div>
+					<div class="modal-body">
+						
+						<%= render template: "contact/new"%>
 
-			<br>
-
-
-			<%= link_to (image_tag "google-256.png",class: "social-icon" ), 'https://plus.google.com/114926340790891601148', rel: 'publisher',  :target => "_blank"%> 
-			<%= link_to (image_tag "facebook-256.png",class: "social-icon"), 'https://www.facebook.com/pages/MuscleSys/1019521451407294',  :target => "_blank" %> 
-			<%= link_to (image_tag "twitter-256.png",class: "social-icon" ), 'https://twitter.com/Muscle_Sys',  :target => "_blank" %> 
-
-			<%= link_to (image_tag "email-256.png",class: "social-icon" ), '#contato',:data => { :toggle =>"modal" } %>
-
-			<h6>© 2014 MuscleSys. Todos os direitos reservados. <br> Desenvolvido por  <%= link_to('Arneti Tecnologia', 'http://arneti.com.br', :target => '_blank', class: "arneti"  )%> </h6>
-
-			<h6>Brasil / Goiás</h6>
-			<%=image_tag "brasil_goias.jpg", class: "band" %>
-
-
-		</div>
-
-		<div class="col-md-4">
-
-
-
-		</div>
-	</div>
-
-	<div id="contato" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contatoLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h3 id="contatoLabel">Gostaríamos muito de ouvir de você</h3>
-				</div>
-				<div class="modal-body">
-					
-					<%= render template: "contact/new"%>
-
-				</div>
-				<div class="modal-footer">
-					<button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+					</div>
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+					</div>
 				</div>
 			</div>
 		</div>
+
+
+		<!-- Modal de seleção de aluno -->
+
+		<% if user_signed_in? %>
+
+		<div class="modal fade" id="aluno" tabindex="-1" role="dialog" aria-labelledby="Aluno" >
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span >&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Escolher o aluno para visualizar o perfil</h4>
+					</div>
+
+					<div class="modal-body">
+
+
+						<!-- Início do select box do usuário -->
+						<% if current_user.role == "personal" or current_user.admin == true %>
+
+						<% @users = User.where(:personal_id => current_user.id).order(:first_name) %>
+						<%  @users.each do |user| %>
+
+						<%= link_to (user.first_name+" "+user.last_name),"/admin", :class=> '' %><br/>
+
+						
+
+						<% end %>
+						<% end %>
+						<!-- Fim do select box do usuário -->
+						
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<% end %>
+
+		<!-- Fim ||| Modal de seleção de aluno -->
+
 	</div>
-
-
-   <!-- Modal de seleção de aluno -->
-
-   <% if user_signed_in? %>
-
-   <div class="modal fade" id="aluno" tabindex="-1" role="dialog" aria-labelledby="Aluno" >
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span >&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Escolher o aluno para visualizar o perfil</h4>
-        </div>
-
-        <div class="modal-body">
-
-
-	<!-- Início do select box do usuário -->
-    <% if current_user.role == "personal" or current_user.admin == true %>
-
-    <% @users = User.where(:personal_id => current_user.id).order(:first_name) %>
-    <%  @users.each do |user| %>
-
-     <%= link_to (user.first_name+" "+user.last_name),"/admin", :class=> '' %><br/>
-
-   
-
-    <% end %>
-    <% end %>
-    <!-- Fim do select box do usuário -->
-          
-
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-   <% end %>
-
-   <!-- Fim ||| Modal de seleção de aluno -->
-
 </div>
 

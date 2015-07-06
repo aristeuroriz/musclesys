@@ -11,13 +11,11 @@
   <div class="row-fluid">
     <div class="col-md-12">
       
-
       <% if current_user.image_url? %>
         <%= image_tag current_user.image_url,  class: "img-responsive img-circle img-edit center-block"  %>
         <% else %>
         <%= image_tag current_user.avatar.url, class: "img-responsive img-circle img-edit center-block" %>
         <% end %>
-    
     
       <%= f.file_field :avatar, label: 'Alterar foto', as: :file %>
     </div>
